@@ -20,6 +20,8 @@ export function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
+    { href: '/benefits', label: 'Benefits' },
+    { href: '/faq', label: 'FAQ' },
     { href: '/pre-seed', label: 'Pre-Seed' },
     { href: '/contact', label: 'Contact' },
     { href: 'https://docs.thevenin.io/', label: 'Docs' },
