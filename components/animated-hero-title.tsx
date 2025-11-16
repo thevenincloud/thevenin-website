@@ -31,6 +31,9 @@ export function AnimatedHeroTitle() {
         <span className={`absolute -inset-2 bg-primary/5 blur-xl ${mounted ? 'animate-pulse-fast' : ''} -z-10`} />
       </span>
 
+      {/* Line break to ensure proper spacing */}
+      <br className="block" />
+      
       {/* "Ship like an" - static */}
       <span className="inline-block text-primary">Ship like an </span>
 
