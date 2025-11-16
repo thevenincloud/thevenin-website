@@ -1,0 +1,49 @@
+import type { Metadata } from 'next'
+import { Lexend, Krona_One } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
+
+const lexend = Lexend({ subsets: ["latin"], variable: '--font-lexend' });
+const kronaOne = Krona_One({ 
+  subsets: ["latin"], 
+  weight: '400',
+  variable: '--font-krona' 
+});
+
+export const metadata: Metadata = {
+  title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
+  description: 'Get the power of an enterprise-grade platform without the engineering overhead. Thevenin makes app deployment scalable, secure, and effortless.',
+  generator: 'v0.app',
+  icons: {
+    icon: [
+      {
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-icon.png',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" className="dark">
+      <body className={`${lexend.variable} ${kronaOne.variable} font-sans antialiased`}>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
