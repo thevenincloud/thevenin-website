@@ -1,3 +1,5 @@
+import ServicesSection from "../components/services-section";
+import TiersSection from "../components/tiers-section";
 import { Navbar } from '@/components/navbar'
 import { HeroSection } from '@/components/hero-section'
 import { SocialProof } from '@/components/social-proof'
@@ -15,9 +17,11 @@ export default function Home() {
       <HeroSection />
       {/* <SocialProof /> */}
       <FeaturesSection />
+      <ServicesSection />
       <BenefitsSection />
       <DemoVideoSection />
       <VendorNeutralSection />
+      <TiersSection />
       <FinalCTA />
       <Footer />
     </main>
