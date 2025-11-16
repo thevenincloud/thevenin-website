@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
       {/* Thévenin Circuit Animation - Full background */}
-      <TheveninAnimation />
+      {/* <TheveninAnimation /> */}
 
       {/* Animated grid background */}
       <div className="absolute inset-0 -z-10 opacity-20">

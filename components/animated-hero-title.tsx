@@ -11,21 +11,12 @@ export function AnimatedHeroTitle() {
 
   // Always render the same HTML structure for SSR and client
   return (
-    <h1 className="mb-6 font-krona text-4xl leading-tight tracking-tight text-balance md:text-6xl lg:text-7xl relative">
+    <h1 className="mb-6 font-krona text-3xl leading-tight tracking-tight text-balance md:text-5xl lg:text-6xl relative">
       {/* "Build like a" - static */}
-      <span className="inline-block">Build like a </span>
+      <span className="inline-block">Build like a Startup</span>
 
       {/* "Startup" - Fast, agile, dynamic with moving particles */}
       <span className="relative inline-block group">
-        <span className="relative z-10">Startup</span>
-
-        {/* Fast-moving particles around "Startup" */}
-        <span className="absolute inset-0 z-0">
-          <span className={`absolute top-0 left-0 w-1 h-1 bg-primary rounded-full ${mounted ? 'animate-particle-1' : ''}`} />
-          <span className={`absolute top-1/2 right-0 w-1 h-1 bg-primary rounded-full ${mounted ? 'animate-particle-2' : ''}`} />
-          <span className={`absolute bottom-0 left-1/3 w-1 h-1 bg-primary rounded-full ${mounted ? 'animate-particle-3' : ''}`} />
-          <span className={`absolute top-1/4 right-1/4 w-0.5 h-0.5 bg-primary/60 rounded-full ${mounted ? 'animate-particle-4' : ''}`} />
-        </span>
 
         {/* Subtle glow pulse for startup energy */}
         <span className={`absolute -inset-2 bg-primary/5 blur-xl ${mounted ? 'animate-pulse-fast' : ''} -z-10`} />
@@ -33,16 +24,13 @@ export function AnimatedHeroTitle() {
 
       {/* Line break to ensure proper spacing */}
       <br className="block" />
-      
-      {/* "Ship like an" - static */}
-      <span className="inline-block text-primary">Ship like an </span>
 
       {/* "Enterprise" - Solid, structured, stable with grid */}
       <span className="relative inline-block group text-primary">
-        <span className="relative z-10">Enterprise</span>
+        <span className="relative z-10">Ship like an Enterprise</span>
 
         {/* Structured grid lines that build around "Enterprise" */}
-        <span className="absolute inset-0 -m-4 opacity-20">
+        <span className="absolute inset-0 -m-4 opacity-40">
           {/* Vertical lines */}
           <span className={`absolute left-0 top-0 w-px h-full bg-primary ${mounted ? 'animate-build-vertical-1' : ''}`} />
           <span className={`absolute left-1/3 top-0 w-px h-full bg-primary ${mounted ? 'animate-build-vertical-2' : ''}`} />
