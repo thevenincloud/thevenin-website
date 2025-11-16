@@ -36,9 +36,9 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 lg:h-18">
-            {/* Logo */}
-            <div className="flex items-center gap-2 relative group">
-              <div className="absolute -inset-2 bg-[#CDFF8C]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
+            {/* Logo with link to home */}
+            <a href="/" className="flex items-center gap-2 relative group" aria-label="Go to home">
+              <div className="absolute" />
               <Image
                 src="/logo.png"
                 alt="Thevenin"
@@ -47,7 +47,7 @@ export function Navbar() {
                 className="h-8 w-auto relative z-10"
                 priority
               />
-            </div>
+            </a>
             
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
