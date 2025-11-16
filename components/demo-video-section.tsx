@@ -1,6 +1,46 @@
-import { Play } from 'lucide-react'
+'use client'
+
+import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
+import { useState, useRef } from 'react'
 
 export function DemoVideoSection() {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
+  const [showControls, setShowControls] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
+
+  const toggleFullscreen = () => {
+    if (videoRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen()
+      } else {
+        videoRef.current.requestFullscreen()
+      }
+    }
+  }
+
+  const handleVideoClick = () => {
+    togglePlay()
+  }
+
   return (
     <section className="relative overflow-hidden border-y border-border/40 bg-background py-32">
       <div className="container mx-auto px-6">
@@ -16,26 +56,93 @@ export function DemoVideoSection() {
           </div>
 
           {/* Video Container */}
-          <div className="group relative aspect-video overflow-hidden rounded-lg border border-border/40 bg-muted/20 shadow-2xl shadow-primary/5 transition-all hover:border-border/60">
-            {/* Placeholder for video */}
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10">
-              <div className="relative">
-                <div className="absolute inset-0 animate-pulse rounded-full bg-primary/20 blur-xl" />
+          <div 
+            className="group relative aspect-video overflow-hidden rounded-lg border border-border/40 bg-muted/20 shadow-2xl shadow-primary/5 transition-all hover:border-primary/50"
+            onMouseEnter={() => setShowControls(true)}
+            onMouseLeave={() => setShowControls(isPlaying ? false : true)}
+          >
+            {/* Video Element */}
+            <video
+              ref={videoRef}
+              className="h-full w-full object-cover cursor-pointer bg-background"
+              onClick={handleVideoClick}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            >
+              <source src="/videos/thevenin-demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+
+
+            {/* Play/Pause Overlay */}
+            {!isPlaying && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0A0C10] gap-8">
+                {/* Logo */}
+                <img 
+                  src="/logo.png" 
+                  alt="Thevenin Logo" 
+                  className="w-1/2 max-w-md"
+                />
+                {/* Play Button */}
                 <button
-                  className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary bg-background/80 backdrop-blur-sm transition-all hover:scale-110 hover:bg-background"
+                  onClick={togglePlay}
+                  className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary bg-background/80 transition-all hover:scale-110 hover:bg-background hover:shadow-lg hover:shadow-primary/25"
                   aria-label="Play demo video"
                 >
                   <Play className="ml-1 h-8 w-8 fill-primary text-primary" />
                 </button>
               </div>
+            )}
+
+            {/* Custom Controls */}
+            <div 
+              className={`absolute bottom-0 left-0 right-0 bg-linear-to-t from-background/90 via-background/60 to-transparent p-4 transition-all duration-300 ${
+                showControls ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+              }`}
+            >
+              <div className="flex items-center justify-between gap-4">
+                {/* Play/Pause Button */}
+                <button
+                  onClick={togglePlay}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-110"
+                  aria-label={isPlaying ? 'Pause' : 'Play'}
+                >
+                  {isPlaying ? (
+                    <Pause className="h-5 w-5 fill-primary" />
+                  ) : (
+                    <Play className="ml-0.5 h-5 w-5 fill-primary" />
+                  )}
+                </button>
+
+                {/* Spacer */}
+                <div className="flex-1" />
+
+                {/* Volume Button */}
+                <button
+                  onClick={toggleMute}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-110"
+                  aria-label={isMuted ? 'Unmute' : 'Mute'}
+                >
+                  {isMuted ? (
+                    <VolumeX className="h-5 w-5" />
+                  ) : (
+                    <Volume2 className="h-5 w-5" />
+                  )}
+                </button>
+
+                {/* Fullscreen Button */}
+                <button
+                  onClick={toggleFullscreen}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-110"
+                  aria-label="Fullscreen"
+                >
+                  <Maximize className="h-5 w-5" />
+                </button>
+              </div>
             </div>
 
-            {/* Video thumbnail */}
-            <img
-              src="/modern-cloud-infrastructure-dashboard-with-graphs-.jpg"
-              alt="Thevenin Platform Demo"
-              className="h-full w-full object-cover opacity-40 transition-opacity group-hover:opacity-60"
-            />
+
           </div>
 
           {/* Stats */}
