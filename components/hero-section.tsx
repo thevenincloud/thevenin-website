@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, FileText } from 'lucide-react'
+import { TheveninAnimation } from '@/components/thevenin-animation'
+import { AnimatedHeroTitle } from '@/components/animated-hero-title'
 
 export function HeroSection() {
   return (
@@ -8,14 +10,14 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+        
+        {/* Thévenin Animation - Subtle background effect */}
+        <TheveninAnimation />
       </div>
 
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 font-krona text-4xl leading-tight tracking-tight text-balance md:text-6xl lg:text-7xl">
-            Build like a Startup.{' '}
-            <span className="text-primary">Ship like an Enterprise.</span>
-          </h1>
+          <AnimatedHeroTitle />
           
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Get the power of an enterprise-grade platform without the engineering overhead. 
