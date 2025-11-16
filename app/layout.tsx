@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Lexend, Krona_One } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { CookieBanner } from '@/components/cookie-banner'
+import { GoogleAnalytics } from '@/components/google-analytics'
 import './globals.css'
 
 const lexend = Lexend({ subsets: ["latin"], variable: '--font-lexend' });
@@ -41,8 +43,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${lexend.variable} ${kronaOne.variable} font-sans antialiased`}>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'} />
         {children}
         <Analytics />
+        <CookieBanner />
       </body>
     </html>
   )

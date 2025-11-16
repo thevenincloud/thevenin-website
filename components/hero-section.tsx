@@ -29,16 +29,16 @@ export function HeroSection() {
               size="lg" 
               className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-8"
             >
-              Join the Beta
+              <a href="https://apps.thevenin.io/login">Join the Beta</a>
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
               size="lg" 
-              variant="outline"
+              variant="secondary"
               className="border-border/50 text-base font-medium px-8"
             >
               <FileText className="mr-2 h-4 w-4" />
-              View Docs
+              <a href="https://docs.thevenin.io" target="_blank" rel="noopener noreferrer">View Docs</a>
             </Button>
           </div>
         </div>

@@ -13,7 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <SocialProof />
+      {/* <SocialProof /> */}
       <FeaturesSection />
       <BenefitsSection />
       <DemoVideoSection />

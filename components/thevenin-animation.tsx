@@ -30,33 +30,37 @@ export function TheveninAnimation() {
 
   useEffect(() => {
     setMounted(true)
-    
     const timeline = [
       { delay: 0, phase: 'complex' as const },
       { delay: 5000, phase: 'transform' as const },
       { delay: 10000, phase: 'simple' as const },
       { delay: 15000, phase: 'complex' as const }, // Loop
     ]
-
     const timers = timeline.map(({ delay, phase: newPhase }) =>
       setTimeout(() => setPhase(newPhase), delay)
     )
-
     const loopInterval = setInterval(() => {
       setPhase('complex')
       setTimeout(() => setPhase('transform'), 5000)
       setTimeout(() => setPhase('simple'), 10000)
     }, 15000)
-
     return () => {
       timers.forEach(clearTimeout)
       clearInterval(loopInterval)
     }
   }, [])
 
-  if (!mounted) {
-    return null
-  }
+  // Always render the animation container, but visually hide until mounted
+  return (
+    <div className={`absolute inset-0 overflow-hidden pointer-events-none opacity-70 ${mounted ? '' : 'invisible'}`}>
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid slice"
+      >
+      </svg>
+    </div>
+  )
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-70">
