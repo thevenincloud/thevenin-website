@@ -137,23 +137,31 @@ export default function PreSeedPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+                asChild
+                className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 cursor-pointer"
               >
-                View Pitch Deck
-                <ArrowRight className="h-4 w-4" />
+                <a
+                  href="https://docsend.com/view/k5c5ikjvh4h7zk3i"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Thevenin Pitch Deck"
+                >
+                  View Pitch Deck
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="gap-2"
+                variant="secondary"
+                className="gap-2 cursor-pointer"
               >
                 Schedule a Call
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
               Interested investors can reach out to{' '}
-              <a href="mailto:invest@thevenin.io" className="text-primary hover:underline">
-                invest@thevenin.io
+              <a href="mailto:support@thevenin.io" className="text-primary hover:underline">
+                support@thevenin.io
               </a>
             </p>
           </div>

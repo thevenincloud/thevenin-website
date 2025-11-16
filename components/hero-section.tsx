@@ -1,23 +1,13 @@
+import { AnimatedHeroTitle } from '@/components/animated-hero-title'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, FileText } from 'lucide-react'
-import { TheveninAnimation } from '@/components/thevenin-animation'
-import { AnimatedHeroTitle } from '@/components/animated-hero-title'
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
-      {/* Thévenin Circuit Animation - Full background */}
-      {/* <TheveninAnimation /> */}
-
       {/* Animated grid background */}
-      <div className="absolute inset-0 -z-10 opacity-20">
+      <div className="absolute inset-0 -z-10 opacity-40">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
-      </div>
-
-      {/* Radial gradient overlays */}
-      <div className="absolute inset-0 -z-20">
-        <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px] animate-pulse-slow" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Content */}
