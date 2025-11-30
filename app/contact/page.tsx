@@ -1,174 +1,218 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Mail, MessageSquare, Building2 } from 'lucide-react'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 export default function ContactPage() {
+  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
-    name: '',
+    companyName: '',
     email: '',
-    company: '',
+    companySize: '',
+    location: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Handle client-side mounting to prevent hydration errors
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('[v0] Form submitted:', formData)
-  }
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
 
-  const contactMethods = [
-    {
-      icon: Mail,
-      title: 'Email Us',
-      description: 'Our team will respond within 24 hours',
-      contact: 'hello@thevenin.io',
-      href: 'mailto:hello@thevenin.io',
-    },
-    {
-      icon: MessageSquare,
-      title: 'Live Chat',
-      description: 'Available Monday to Friday, 9am-6pm PST',
-      contact: 'Start a conversation',
-      href: '#',
-    },
-    {
-      icon: Building2,
-      title: 'Visit Us',
-      description: 'Come say hello at our office',
-      contact: 'San Francisco, CA',
-      href: '#',
-    },
-  ]
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          companyName: '',
+          email: '',
+          companySize: '',
+          location: '',
+          message: '',
+        })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <main className="min-h-screen">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Contact Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-heading text-5xl font-bold leading-tight text-balance lg:text-6xl">
-              Let&apos;s Build Something
-              <span className="text-primary"> Together</span>
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed text-pretty">
-              Have questions about Thevenin? Want to discuss partnerships or investment opportunities? 
-              We&apos;d love to hear from you.
-            </p>
-          </div>
-        </div>
-      </section>
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20 items-start">
+              {/* Left side - Contact Info */}
+              <div className="space-y-6">
+                <h1 className="font-heading text-5xl font-bold leading-tight lg:text-6xl">
+                  <span className="text-primary">Contact Us</span>
+                </h1>
+                
+                <div className="space-y-4 text-lg">
+                  <p className="font-semibold text-foreground">
+                    Ready to take control of your platform?
+                  </p>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    Talk to us to see how Thevenin can help you ship faster, reduce operational risk, and keep full control of your infrastructure.
+                  </p>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    Ask for a pilot, give us feedback or let&apos;s talk about sales to see if Thevenin fits your company.
+                  </p>
+                </div>
+              </div>
 
-      {/* Contact Methods */}
-      <section className="py-12">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-6 md:grid-cols-3">
-              {contactMethods.map((method) => (
-                <a
-                  key={method.title}
-                  href={method.href}
-                  className="group relative overflow-hidden rounded-lg border border-border/40 bg-muted/20 p-6 transition-all hover:border-border/60"
-                >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <method.icon className="h-6 w-6 text-primary" />
+              {/* Right side - Contact Form */}
+              <div className="bg-linear-to-br from-card/50 to-card/30 backdrop-blur-sm border border-border/60 rounded-3xl p-10 shadow-2xl">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-3">
+                    <label htmlFor="companyName" className="text-base font-medium text-foreground block">
+                      Company Name
+                    </label>
+                    <Input
+                      id="companyName"
+                      placeholder=""
+                      required
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      className="h-12 bg-background/60 border-border/40 rounded-xl text-base placeholder:text-muted-foreground/40 focus-visible:ring-primary/20 focus-visible:border-primary/40 transition-all"
+                    />
                   </div>
-                  <h3 className="font-heading text-lg font-bold mb-2">{method.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
-                  <p className="text-sm text-primary font-medium">{method.contact}</p>
-                </a>
-              ))}
+
+                  <div className="space-y-3">
+                    <label htmlFor="email" className="text-base font-medium text-foreground block">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder=""
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="h-12 bg-background/60 border-border/40 rounded-xl text-base placeholder:text-muted-foreground/40 focus-visible:ring-primary/20 focus-visible:border-primary/40 transition-all"
+                    />
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="companySize" className="text-base font-medium text-foreground block">
+                      Company Size
+                    </label>
+                    {mounted ? (
+                      <Select
+                        value={formData.companySize}
+                        onValueChange={(value) => setFormData({ ...formData, companySize: value })}
+                        required
+                      >
+                        <SelectTrigger className="w-full h-12 bg-background/60 border-border/40 rounded-xl text-base focus:ring-primary/20 focus:border-primary/40 transition-all">
+                          <SelectValue placeholder="Select..." />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background/95 backdrop-blur-lg border-border/60">
+                          <SelectItem value="startup" className="text-base">Startup</SelectItem>
+                          <SelectItem value="scaleup" className="text-base">Scale Up</SelectItem>
+                          <SelectItem value="enterprise" className="text-base">Enterprise</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    ) : (
+                      <div className="w-full h-12 bg-background/60 border border-border/40 rounded-xl flex items-center px-3 text-base text-muted-foreground/40">
+                        Select...
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="location" className="text-base font-medium text-foreground block">
+                      Location
+                    </label>
+                    <Input
+                      id="location"
+                      placeholder=""
+                      required
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      className="h-12 bg-background/60 border-border/40 rounded-xl text-base placeholder:text-muted-foreground/40 focus-visible:ring-primary/20 focus-visible:border-primary/40 transition-all"
+                    />
+                  </div>
+
+                  <div className="space-y-3">
+                    <label htmlFor="message" className="text-base font-medium text-foreground block">
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder=""
+                      rows={5}
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="resize-none bg-background/60 border-border/40 rounded-xl text-base placeholder:text-muted-foreground/40 focus-visible:ring-primary/20 focus-visible:border-primary/40 transition-all"
+                    />
+                  </div>
+
+                  {submitStatus === 'success' && (
+                    <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-500 text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-300">
+                      ✓ Thank you! We&apos;ll get back to you soon.
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-500 text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-300">
+                      ✗ Something went wrong. Please try again.
+                    </div>
+                  )}
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full h-12 bg-muted hover:bg-muted/80 text-foreground font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Submitting...
+                      </span>
+                    ) : 'Submit'}
+                  </Button>
+                </form>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20 border-y border-border/40">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-2xl">
-            <div className="mb-12 text-center">
-              <h2 className="font-heading text-4xl font-bold mb-4">Send Us a Message</h2>
-              <p className="text-muted-foreground">
-                Fill out the form below and we&apos;ll get back to you as soon as possible.
-              </p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Name <span className="text-destructive">*</span>
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="John Doe"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email <span className="text-destructive">*</span>
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="company" className="text-sm font-medium">
-                  Company
-                </label>
-                <Input
-                  id="company"
-                  placeholder="Acme Inc."
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
-                  Message <span className="text-destructive">*</span>
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Tell us about your project or inquiry..."
-                  rows={6}
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                Send Message
-              </Button>
-
-              <p className="text-center text-sm text-muted-foreground">
-                By submitting this form, you agree to our privacy policy.
-              </p>
-            </form>
           </div>
         </div>
       </section>
