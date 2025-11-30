@@ -45,33 +45,6 @@ export function FinalCTA() {
             </a>
           </Button>
         </div>
-
-        {/* Trust indicators */}
-        <div className="mt-12 md:mt-16 pt-8 border-t border-border/50">
-          <p className="text-sm text-muted-foreground mb-4">
-            Trusted by innovative companies worldwide
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground/70">
-            <span className="flex items-center gap-2">
-              <svg className="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              No credit card required
-            </span>
-            <span className="flex items-center gap-2">
-              <svg className="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Free demo environment
-            </span>
-            <span className="flex items-center gap-2">
-              <svg className="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Setup in minutes
-            </span>
-          </div>
-        </div>
       </div>
     </SectionWrapper>
   )
