@@ -42,12 +42,13 @@ export function Navbar() {
             <a href="/" className="flex items-center gap-2 relative group" aria-label="Go to home">
               <div className="absolute" />
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Thevenin"
-                width={140}
-                height={32}
+                width={894}
+                height={178}
                 className="h-8 w-auto relative z-10"
                 priority
+                quality={95}
               />
             </a>
             

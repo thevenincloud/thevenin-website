@@ -2,6 +2,7 @@
 
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 import { useState, useRef } from 'react'
+import Image from 'next/image'
 
 export function DemoVideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -70,6 +71,13 @@ export function DemoVideoSection() {
               onPause={() => setIsPlaying(false)}
             >
               <source src="/videos/thevenin-demo.mp4" type="video/mp4" />
+              <track
+                kind="captions"
+                src="/videos/thevenin-demo-captions.vtt"
+                srcLang="en"
+                label="English"
+                default
+              />
               Your browser does not support the video tag.
             </video>
 
@@ -79,10 +87,13 @@ export function DemoVideoSection() {
             {!isPlaying && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0A0C10] gap-8">
                 {/* Logo */}
-                <img 
-                  src="/logo.png" 
+                <Image 
+                  src="/logo.webp" 
                   alt="Thevenin Logo" 
+                  width={894}
+                  height={178}
                   className="w-1/2 max-w-md"
+                  loading="lazy"
                 />
                 {/* Play Button */}
                 <button

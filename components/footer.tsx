@@ -8,11 +8,12 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-5">
           <div>
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Thevenin"
-              width={120}
-              height={28}
+              width={894}
+              height={178}
               className="mb-4 h-7 w-auto"
+              loading="lazy"
             />
             <p className="text-sm text-muted-foreground">
               Build like a Startup. Ship like an Enterprise.
@@ -20,7 +21,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-semibold">Product</h4>
+            <h2 className="mb-4 font-semibold text-base">Product</h2>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/pricing" className="hover:text-foreground">Pricing</Link></li>
               <li><Link href="/benefits" className="hover:text-foreground">Benefits</Link></li>
@@ -29,7 +30,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-semibold">Resources</h4>
+            <h2 className="mb-4 font-semibold text-base">Resources</h2>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="https://docs.thevenin.io" className="hover:text-foreground">Documentation</a></li>
               <li><a href="https://docs.thevenin.io" className="hover:text-foreground">API Reference</a></li>
@@ -38,7 +39,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-semibold">Company</h4>
+            <h2 className="mb-4 font-semibold text-base">Company</h2>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about" className="hover:text-foreground">About</Link></li>
               <li><a href="https://docs.thevenin.io/blog" className="hover:text-foreground">Blog</a></li>
@@ -47,7 +48,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-semibold">Legal</h4>
+            <h2 className="mb-4 font-semibold text-base">Legal</h2>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="/privacy-policy" className="hover:text-foreground">Privacy Policy</a></li>
               <li><a href="/terms-of-service" className="hover:text-foreground">Terms of Service</a></li>

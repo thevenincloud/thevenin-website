@@ -1,16 +1,27 @@
-import ServicesSection from "../components/services-section";
+import dynamic from 'next/dynamic'
 import { Navbar } from '@/components/navbar'
 import { HeroSection } from '@/components/hero-section'
-import { SocialProof } from '@/components/social-proof'
 import { FeaturesOverviewSection } from '@/components/features-overview-section'
-import { TargetAudienceSection } from '@/components/target-audience-section'
-import { FeaturesSection } from '@/components/features-section'
-import { BenefitsSection } from '@/components/benefits-section'
-import { DemoVideoSection } from '@/components/demo-video-section'
-import { VendorNeutralSection } from '@/components/vendor-neutral-section'
-import { StateOfArtSection } from '@/components/state-of-art-section'
-import { FinalCTA } from '@/components/final-cta'
-import { Footer } from '@/components/footer'
+
+// Lazy load below-the-fold components
+const TargetAudienceSection = dynamic(() => import('@/components/target-audience-section').then(mod => ({ default: mod.TargetAudienceSection })), {
+  loading: () => <div className="min-h-[400px]" />,
+})
+const DemoVideoSection = dynamic(() => import('@/components/demo-video-section').then(mod => ({ default: mod.DemoVideoSection })), {
+  loading: () => <div className="min-h-[400px]" />,
+})
+const VendorNeutralSection = dynamic(() => import('@/components/vendor-neutral-section').then(mod => ({ default: mod.VendorNeutralSection })), {
+  loading: () => <div className="min-h-[400px]" />,
+})
+const StateOfArtSection = dynamic(() => import('@/components/state-of-art-section').then(mod => ({ default: mod.StateOfArtSection })), {
+  loading: () => <div className="min-h-[400px]" />,
+})
+const FinalCTA = dynamic(() => import('@/components/final-cta').then(mod => ({ default: mod.FinalCTA })), {
+  loading: () => <div className="min-h-[200px]" />,
+})
+const Footer = dynamic(() => import('@/components/footer').then(mod => ({ default: mod.Footer })), {
+  loading: () => <div className="min-h-[300px]" />,
+})
 
 export default function Home() {
   return (
@@ -19,10 +30,6 @@ export default function Home() {
       <HeroSection />
       <FeaturesOverviewSection />
       <TargetAudienceSection />
-      {/* <SocialProof /> */}
-      {/* <FeaturesSection /> */}
-      {/* <ServicesSection /> */}
-      {/* <BenefitsSection /> */}
       <DemoVideoSection />
       <VendorNeutralSection />
       <StateOfArtSection />
