@@ -2,15 +2,12 @@ import { FeaturesOverviewSection } from '@/components/features-overview-section'
 import { HeroSection } from '@/components/hero-section'
 import { Navbar } from '@/components/navbar'
 import { OrganizationSchema, SoftwareApplicationSchema, WebsiteSchema } from '@/components/structured-data'
-import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
   description: 'Get the power of an enterprise-grade platform without the engineering overhead. Thevenin makes app deployment scalable, secure, and effortless.',
-  alternates: {
-    canonical: 'https://thevenin.io',
-  },
 }
 
 // Lazy load below-the-fold components

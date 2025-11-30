@@ -1,44 +1,88 @@
+'use client'
+
 import { Cloud, Lock, Zap } from 'lucide-react'
+import { useState } from 'react'
+import { SectionWrapper } from './section-wrapper'
+import { SectionHeader } from './section-header'
 
 export function VendorNeutralSection() {
-  return (
-    <section className="py-24 md:py-32">
-      <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 font-krona text-3xl tracking-tight text-balance md:text-5xl">
-            You are in control.{' '}
-            <span className="text-primary">No Vendor Lock-in.</span>
-          </h2>
-          <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Use our optimized cloud or deploy Thevenin on your own infrastructure (BYOC - Bring Your Own Cloud). 
-            You are free to move.
-          </p>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
-          <div className="grid gap-8 sm:grid-cols-3">
-            <div className="rounded-lg border border-border/50 bg-card p-6">
-              <Cloud className="mx-auto mb-4 h-10 w-10 text-primary" />
-              <h3 className="mb-2 font-semibold">Flexible Hosting</h3>
-              <p className="text-sm text-muted-foreground">
-                Deploy on our cloud or yours
-              </p>
+  const features = [
+    {
+      icon: Cloud,
+      title: 'Flexible Hosting',
+      description: 'Deploy on our cloud or yours',
+      gradient: 'from-blue-500/20 to-transparent',
+      iconColor: 'text-blue-500',
+      iconBg: 'bg-blue-500/10',
+    },
+    {
+      icon: Lock,
+      title: 'Data Sovereignty',
+      description: 'Keep data in your region',
+      gradient: 'from-primary/20 to-transparent',
+      iconColor: 'text-primary',
+      iconBg: 'bg-primary/10',
+    },
+    {
+      icon: Zap,
+      title: 'Easy Migration',
+      description: 'Move anytime, no penalties',
+      gradient: 'from-purple-500/20 to-transparent',
+      iconColor: 'text-purple-500',
+      iconBg: 'bg-purple-500/10',
+    },
+  ]
+
+  return (
+    <SectionWrapper background="default" id="vendor-neutral">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          title={
+            <>
+              You are in control.{' '}
+              <span className="text-primary">No Vendor Lock-in.</span>
+            </>
+          }
+          description="Use our optimized cloud or deploy Thevenin on your own infrastructure (BYOC - Bring Your Own Cloud). You are free to move."
+        />
+
+        <div className="grid-responsive-3 max-w-5xl mx-auto">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-6 md:p-8 lg:p-10 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {/* Gradient background on hover */}
+              <div className={`absolute inset-0 bg-linear-to-br ${feature.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
+              
+              {/* Content */}
+              <div className="relative z-10 text-center">
+                {/* Icon */}
+                <div className={`mx-auto mb-6 inline-flex rounded-xl ${feature.iconBg} p-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <feature.icon className={`h-8 w-8 md:h-10 md:w-10 ${feature.iconColor}`} />
+                </div>
+                
+                {/* Title */}
+                <h3 className="mb-3 text-xl md:text-2xl font-bold">
+                  {feature.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+
+              {/* Corner decoration */}
+              <div className={`absolute -bottom-8 -right-8 h-32 w-32 rounded-full ${feature.iconBg} opacity-20 blur-2xl transition-all duration-300 group-hover:opacity-40 group-hover:scale-125`} />
             </div>
-            <div className="rounded-lg border border-border/50 bg-card p-6">
-              <Lock className="mx-auto mb-4 h-10 w-10 text-primary" />
-              <h3 className="mb-2 font-semibold">Data Sovereignty</h3>
-              <p className="text-sm text-muted-foreground">
-                Keep data in your region
-              </p>
-            </div>
-            <div className="rounded-lg border border-border/50 bg-card p-6">
-              <Zap className="mx-auto mb-4 h-10 w-10 text-primary" />
-              <h3 className="mb-2 font-semibold">Easy Migration</h3>
-              <p className="text-sm text-muted-foreground">
-                Move anytime, no penalties
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   )
 }

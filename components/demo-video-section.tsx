@@ -3,6 +3,8 @@
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
+import { SectionWrapper } from './section-wrapper'
+import { SectionHeader } from './section-header'
 
 export function DemoVideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -43,25 +45,20 @@ export function DemoVideoSection() {
   }
 
   return (
-    <section className="relative overflow-hidden border-y border-border/40 bg-background py-32">
-      <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-4xl">
-          {/* Header */}
-          <div className="mb-16 text-center">
-            <h2 className="font-heading text-4xl font-bold leading-tight text-balance lg:text-5xl">
-              See Thevenin in Action
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground text-pretty">
-              Watch how you can deploy and scale your infrastructure in seconds
-            </p>
-          </div>
+    <SectionWrapper background="gradient" className="border-y border-border/40" id="demo">
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <SectionHeader
+          title="See Thevenin in Action"
+          description="Watch how you can deploy and scale your infrastructure in seconds"
+        />
 
-          {/* Video Container */}
-          <div 
-            className="group relative aspect-video overflow-hidden rounded-lg border border-border/40 bg-muted/20 shadow-2xl shadow-primary/5 transition-all hover:border-primary/50"
-            onMouseEnter={() => setShowControls(true)}
-            onMouseLeave={() => setShowControls(isPlaying ? false : true)}
-          >
+        {/* Video Container */}
+        <div 
+          className="group relative aspect-video overflow-hidden rounded-2xl border border-border/50 bg-muted/20 shadow-2xl shadow-primary/10 transition-all hover:border-primary/50 hover:shadow-primary/20"
+          onMouseEnter={() => setShowControls(true)}
+          onMouseLeave={() => setShowControls(isPlaying ? false : true)}
+        >
             {/* Video Element */}
             <video
               ref={videoRef}
@@ -156,35 +153,34 @@ export function DemoVideoSection() {
 
           </div>
 
-          {/* Stats */}
-          <div className="mt-12 grid grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="font-heading text-3xl font-bold text-primary">
-                &lt;30s
-              </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Average Deploy Time
-              </div>
+        {/* Stats */}
+        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center">
+          <div className="p-6 rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg">
+            <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+              &lt;30s
             </div>
-            <div>
-              <div className="font-heading text-3xl font-bold text-primary">
-                99.9%
-              </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Uptime SLA
-              </div>
+            <div className="text-sm md:text-base text-muted-foreground font-medium">
+              Average Deploy Time
             </div>
-            <div>
-              <div className="font-heading text-3xl font-bold text-primary">
-                24/7
-              </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Support Available
-              </div>
+          </div>
+          <div className="p-6 rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg">
+            <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+              99.9%
+            </div>
+            <div className="text-sm md:text-base text-muted-foreground font-medium">
+              Uptime SLA
+            </div>
+          </div>
+          <div className="p-6 rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg">
+            <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+              24/7
+            </div>
+            <div className="text-sm md:text-base text-muted-foreground font-medium">
+              Support Available
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   )
 }

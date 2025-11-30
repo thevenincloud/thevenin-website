@@ -2,6 +2,8 @@
 
 import { Shield, Cloud, Zap, GitBranch, DollarSign, Boxes } from 'lucide-react'
 import { useState } from 'react'
+import { SectionWrapper } from './section-wrapper'
+import { SectionHeader } from './section-header'
 
 export function FeaturesOverviewSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -70,99 +72,92 @@ export function FeaturesOverviewSection() {
   ]
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-card/30">
+    <SectionWrapper background="muted" id="features">
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="mx-auto mb-16 max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-            <Zap className="h-4 w-4" />
-            Platform Features
-          </div>
-          
-          <h2 className="mb-6 font-krona text-3xl tracking-tight text-balance md:text-5xl lg:text-6xl">
-            Features
-          </h2>
-          
-          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+      {/* Header */}
+      <SectionHeader
+        badge="Platform Features"
+        badgeIcon={Zap}
+        title="Features"
+        description={
+          <>
             Thevenin offers simplicity to empower your applications deployment and management without compromising security.
-          </p>
-          
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Easily deploy containerized (Docker) applications. Attach volumes, variables, files if needed.
-          </p>
-        </div>
+            <span className="block mt-2 text-base">
+              Easily deploy containerized (Docker) applications. Attach volumes, variables, files if needed.
+            </span>
+          </>
+        }
+      />
 
-        {/* Features Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className={`group relative overflow-hidden rounded-2xl border ${feature.borderColor} bg-card p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 ${
-                hoveredIndex === index ? 'scale-[1.02]' : ''
-              }`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              {/* Animated gradient background */}
-              <div className={`absolute inset-0 bg-linear-to-br ${feature.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className={`mb-6 inline-flex rounded-xl ${feature.iconBg} p-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                  <feature.icon className={`h-7 w-7 ${feature.iconColor}`} />
-                </div>
-                
-                {/* Title */}
-                <h3 className="mb-3 text-xl font-bold leading-tight">
-                  {feature.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="mb-6 leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-
-                {/* Feature Details */}
-                <ul className="space-y-2">
-                  {feature.details.map((detail, i) => (
-                    <li 
-                      key={i} 
-                      className="flex items-center gap-2 text-sm text-foreground/80 transition-all duration-300"
-                      style={{ 
-                        transitionDelay: hoveredIndex === index ? `${i * 50}ms` : '0ms',
-                        opacity: hoveredIndex === index ? 1 : 0.7
-                      }}
-                    >
-                      <div className={`h-1.5 w-1.5 rounded-full ${feature.iconBg} ${feature.iconColor}`} />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+      {/* Features Grid */}
+      <div className="grid-responsive-3 max-w-7xl mx-auto">
+        {features.map((feature, index) => (
+          <div
+            key={feature.title}
+            className={`group relative overflow-hidden rounded-2xl border ${feature.borderColor} bg-card/80 backdrop-blur-sm p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 ${
+              hoveredIndex === index ? 'scale-[1.02]' : ''
+            }`}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {/* Animated gradient background */}
+            <div className={`absolute inset-0 bg-linear-to-br ${feature.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
+            
+            {/* Content */}
+            <div className="relative z-10 flex flex-col h-full">
+              {/* Icon */}
+              <div className={`mb-6 inline-flex rounded-xl ${feature.iconBg} p-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 w-fit`}>
+                <feature.icon className={`h-7 w-7 ${feature.iconColor}`} />
               </div>
+              
+              {/* Title */}
+              <h3 className="mb-3 text-xl md:text-2xl font-bold leading-tight">
+                {feature.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="mb-6 text-sm md:text-base leading-relaxed text-muted-foreground">
+                {feature.description}
+              </p>
 
-              {/* Decorative corner accent */}
-              <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full ${feature.iconBg} opacity-20 blur-2xl transition-all duration-300 group-hover:opacity-40 group-hover:scale-150`} />
+              {/* Feature Details */}
+              <ul className="space-y-2.5 mt-auto">
+                {feature.details.map((detail, i) => (
+                  <li 
+                    key={i} 
+                    className="flex items-start gap-2.5 text-sm text-foreground/80 transition-all duration-300"
+                    style={{ 
+                      transitionDelay: hoveredIndex === index ? `${i * 50}ms` : '0ms',
+                      opacity: hoveredIndex === index ? 1 : 0.7
+                    }}
+                  >
+                    <div className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${feature.iconBg} ${feature.iconColor}`} />
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
 
-        {/* Bottom CTA or Info */}
-        <div className="mt-16 text-center">
-          <p className="text-lg text-muted-foreground">
-            All features included in every tier.{' '}
-            <a href="/benefits" className="font-semibold text-primary hover:underline">
-              Learn more about our benefits →
-            </a>
-          </p>
-        </div>
+            {/* Decorative corner accent */}
+            <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full ${feature.iconBg} opacity-20 blur-2xl transition-all duration-300 group-hover:opacity-40 group-hover:scale-150`} />
+          </div>
+        ))}
       </div>
-    </section>
+
+      {/* Bottom CTA or Info */}
+      <div className="mt-12 md:mt-16 text-center">
+        <p className="text-base md:text-lg text-muted-foreground">
+          All features included in every tier.{' '}
+          <a href="/benefits" className="font-semibold text-primary hover:underline transition-colors">
+            Learn more about our benefits →
+          </a>
+        </p>
+      </div>
+    </SectionWrapper>
   )
 }
