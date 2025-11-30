@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
@@ -17,6 +18,20 @@ import {
   ArrowRight,
   Check
 } from 'lucide-react'
+import { BreadcrumbSchema } from '@/components/structured-data'
+
+export const metadata: Metadata = {
+  title: 'Benefits - Why Choose Thevenin Platform',
+  description: 'Discover the benefits of Thevenin: accelerate development, reduce costs, ensure security and compliance, and scale effortlessly with enterprise-grade infrastructure.',
+  alternates: {
+    canonical: 'https://thevenin.io/benefits',
+  },
+  openGraph: {
+    title: 'Benefits - Why Choose Thevenin Platform',
+    description: 'Accelerate development, reduce costs, ensure security and compliance with Thevenin.',
+    url: 'https://thevenin.io/benefits',
+  },
+}
 
 export default function BenefitsPage() {
   const mainBenefits = [

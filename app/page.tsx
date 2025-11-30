@@ -1,7 +1,17 @@
 import dynamic from 'next/dynamic'
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { HeroSection } from '@/components/hero-section'
 import { FeaturesOverviewSection } from '@/components/features-overview-section'
+import { OrganizationSchema, WebsiteSchema, SoftwareApplicationSchema } from '@/components/structured-data'
+
+export const metadata: Metadata = {
+  title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
+  description: 'Get the power of an enterprise-grade platform without the engineering overhead. Thevenin makes app deployment scalable, secure, and effortless.',
+  alternates: {
+    canonical: 'https://thevenin.io',
+  },
+}
 
 // Lazy load below-the-fold components
 const TargetAudienceSection = dynamic(() => import('@/components/target-audience-section').then(mod => ({ default: mod.TargetAudienceSection })), {
@@ -25,16 +35,21 @@ const Footer = dynamic(() => import('@/components/footer').then(mod => ({ defaul
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <HeroSection />
-      <FeaturesOverviewSection />
-      <TargetAudienceSection />
-      <DemoVideoSection />
-      <VendorNeutralSection />
-      <StateOfArtSection />
-      <FinalCTA />
-      <Footer />
-    </main>
+    <>
+      <OrganizationSchema />
+      <WebsiteSchema />
+      <SoftwareApplicationSchema />
+      <main className="min-h-screen">
+        <Navbar />
+        <HeroSection />
+        <FeaturesOverviewSection />
+        <TargetAudienceSection />
+        <DemoVideoSection />
+        <VendorNeutralSection />
+        <StateOfArtSection />
+        <FinalCTA />
+        <Footer />
+      </main>
+    </>
   )
 }

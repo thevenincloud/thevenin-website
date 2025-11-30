@@ -1,6 +1,21 @@
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Linkedin } from 'lucide-react'
+import { BreadcrumbSchema } from '@/components/structured-data'
+
+export const metadata: Metadata = {
+  title: 'About Us - Meet the Thevenin Team',
+  description: 'Learn about Thevenin\'s mission to democratize enterprise-grade infrastructure. Meet our experienced team of platform engineers and developers.',
+  alternates: {
+    canonical: 'https://thevenin.io/about',
+  },
+  openGraph: {
+    title: 'About Us - Meet the Thevenin Team',
+    description: 'Learn about Thevenin\'s mission to democratize enterprise-grade infrastructure.',
+    url: 'https://thevenin.io/about',
+  },
+}
 
 export default function AboutPage() {
   const team = [
@@ -64,8 +79,15 @@ export default function AboutPage() {
   ]
 
   return (
-    <main className="min-h-screen">
-      <Navbar />
+    <>
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: 'https://thevenin.io' },
+          { name: 'About', url: 'https://thevenin.io/about' }
+        ]} 
+      />
+      <main className="min-h-screen">
+        <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -186,5 +208,6 @@ export default function AboutPage() {
 
       <Footer />
     </main>
+    </>
   )
 }

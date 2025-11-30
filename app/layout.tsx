@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
-import { Lexend, Krona_One } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { CookieBanner } from '@/components/cookie-banner'
 import { GoogleAnalytics } from '@/components/google-analytics'
 import { WebVitals } from '@/components/web-vitals'
+import { Analytics } from '@vercel/analytics/next'
+import type { Metadata } from 'next'
+import { Krona_One, Lexend } from 'next/font/google'
 import './globals.css'
 
 const lexend = Lexend({ 
@@ -23,9 +23,66 @@ const kronaOne = Krona_One({
 });
 
 export const metadata: Metadata = {
-  title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
+  metadataBase: new URL('https://thevenin.io'),
+  title: {
+    default: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
+    template: '%s | Thevenin'
+  },
   description: 'Get the power of an enterprise-grade platform without the engineering overhead. Thevenin makes app deployment scalable, secure, and effortless.',
-  generator: 'v0.app',
+  keywords: [
+    'cloud platform',
+    'infrastructure deployment',
+    'enterprise platform',
+    'application deployment',
+    'DevOps automation',
+    'cloud infrastructure',
+    'platform as a service',
+    'scalable deployment',
+    'secure infrastructure',
+    'multi-cloud platform'
+  ],
+  authors: [{ name: 'Thevenin' }],
+  creator: 'Thevenin',
+  publisher: 'Thevenin',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://thevenin.io',
+    siteName: 'Thevenin',
+    title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
+    description: 'Get the power of an enterprise-grade platform without the engineering overhead. Thevenin makes app deployment scalable, secure, and effortless.',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thevenin Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',
+    description: 'Get the power of an enterprise-grade platform without the engineering overhead.',
+    images: ['/logo.png'],
+    creator: '@thevenin',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -43,6 +100,16 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  manifest: '/manifest.json',
+  alternates: {
+    canonical: 'https://thevenin.io',
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+    // yahoo: 'your-yahoo-verification-code',
+  },
+  category: 'technology',
 }
 
 export default function RootLayout({

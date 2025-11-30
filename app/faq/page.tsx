@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
@@ -12,6 +13,20 @@ import {
   Code,
   Building2
 } from 'lucide-react'
+import { FAQPageSchema, BreadcrumbSchema } from '@/components/structured-data'
+
+export const metadata: Metadata = {
+  title: 'FAQ - Frequently Asked Questions',
+  description: 'Find answers to common questions about Thevenin platform, pricing, security, compliance, and more. Learn how Thevenin can help your business.',
+  alternates: {
+    canonical: 'https://thevenin.io/faq',
+  },
+  openGraph: {
+    title: 'FAQ - Frequently Asked Questions | Thevenin',
+    description: 'Find answers to common questions about Thevenin platform, pricing, security, and compliance.',
+    url: 'https://thevenin.io/faq',
+  },
+}
 
 export default function FAQPage() {
   const faqs = [

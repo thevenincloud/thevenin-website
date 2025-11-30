@@ -1,9 +1,17 @@
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 
-export const metadata = {
-  title: 'Terms of Service - Thevenin',
-  description: 'Terms and conditions for using Thevenin platform services',
+export const metadata: Metadata = {
+  title: 'Terms of Service - Legal Agreement',
+  description: 'Thevenin Terms of Service: Review our legal terms, conditions, and user agreements for using the Thevenin cloud platform and services.',
+  alternates: {
+    canonical: 'https://thevenin.io/terms-of-service',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TermsOfService() {

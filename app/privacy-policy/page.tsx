@@ -1,9 +1,17 @@
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 
-export const metadata = {
-  title: 'Privacy Policy - Thevenin',
-  description: 'Privacy policy and data protection information for Thevenin platform',
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Data Protection & Security',
+  description: 'Thevenin Privacy Policy: Learn how we protect your data, ensure GDPR compliance, and maintain the highest security standards for your information.',
+  alternates: {
+    canonical: 'https://thevenin.io/privacy-policy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function PrivacyPolicy() {
