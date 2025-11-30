@@ -580,7 +580,7 @@ export default function BenefitsPage() {
                 asChild
               >
                 <a href="https://apps.thevenin.io/login">
-                  Join the Beta
+                  Try Thevenin Demo
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>

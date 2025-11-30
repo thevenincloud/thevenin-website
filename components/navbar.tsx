@@ -79,7 +79,7 @@ export function Navbar() {
                 className="bg-[#CDFF8C] text-black font-medium"
                 asChild
               >
-                <a href="https://apps.thevenin.io/signup">Join the Beta</a>
+                <a href="https://apps.thevenin.io/signup">Try Thevenin Demo</a>
               </Button>
             </div>
 
@@ -152,7 +152,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <a href="https://apps.thevenin.io/signup">Join the Beta</a>
+                <a href="https://apps.thevenin.io/signup">Try Thevenin Demo</a>
               </Button>
             </div>
           </div>

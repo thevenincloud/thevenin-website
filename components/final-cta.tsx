@@ -21,7 +21,7 @@ export function FinalCTA() {
             size="lg" 
             className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-10 py-6 text-lg"
           >
-            Join the Beta
+            Try Thevenin Demo
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>

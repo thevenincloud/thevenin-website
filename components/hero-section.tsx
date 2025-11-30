@@ -37,7 +37,7 @@ export function HeroSection() {
               asChild
             >
               <a href="https://apps.thevenin.io/login">
-                Join the Beta
+                Try Thevenin Demo
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
@@ -47,9 +47,8 @@ export function HeroSection() {
               className="border-primary/50 text-foreground hover:bg-primary/10 text-base font-medium px-8"
               asChild
             >
-              <a href="https://docs.thevenin.io" target="_blank" rel="noopener noreferrer">
-                <FileText className="mr-2 h-4 w-4" />
-                View Docs
+              <a href="https://docsend.com/view/ypqcc6ymzq8c84ss" target="_blank" rel="noopener noreferrer">
+                Sales Deck
               </a>
             </Button>
           </div>
