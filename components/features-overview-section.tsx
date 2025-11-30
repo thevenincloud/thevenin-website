@@ -1,6 +1,6 @@
 'use client'
 
-import { Shield, Cloud, Zap, GitBranch, DollarSign, Boxes } from 'lucide-react'
+import { Shield, Cloud, Workflow, ScrollText, DollarSign, Boxes } from 'lucide-react'
 import { useState } from 'react'
 import { SectionWrapper } from './section-wrapper'
 import { SectionHeader } from './section-header'
@@ -30,7 +30,7 @@ export function FeaturesOverviewSection() {
       details: ['Multi-cloud Support', 'BYOC Available', 'No Vendor Lock-in', 'Easy Migration']
     },
     {
-      icon: Zap,
+      icon: Workflow,
       title: 'Modern Automated Operations',
       description: 'Continuous reconciliation and zero manual orchestration.',
       gradient: 'from-yellow-500/20 via-orange-500/10 to-transparent',
@@ -50,7 +50,7 @@ export function FeaturesOverviewSection() {
       details: ['Microservices Ready', 'Service Mesh Compatible', 'Modular Deployment', 'Scale per Service']
     },
     {
-      icon: GitBranch,
+      icon: ScrollText,
       title: 'Governance & Auditability',
       description: 'Clear history, access control and transparent resource limits and quotas.',
       gradient: 'from-indigo-500/20 via-blue-500/10 to-transparent',
@@ -82,7 +82,7 @@ export function FeaturesOverviewSection() {
       {/* Header */}
       <SectionHeader
         badge="Platform Features"
-        badgeIcon={Zap}
+        badgeIcon={Workflow}
         title="Features"
         description={
           <>

@@ -10,7 +10,6 @@ export function VendorNeutralSection() {
 
   const features = [
     {
-      icon: Cloud,
       title: 'Flexible Hosting',
       description: 'Deploy on our cloud or yours',
       gradient: 'from-blue-500/20 to-transparent',
@@ -18,7 +17,6 @@ export function VendorNeutralSection() {
       iconBg: 'bg-blue-500/10',
     },
     {
-      icon: Lock,
       title: 'Data Sovereignty',
       description: 'Keep data in your region',
       gradient: 'from-primary/20 to-transparent',
@@ -26,7 +24,6 @@ export function VendorNeutralSection() {
       iconBg: 'bg-primary/10',
     },
     {
-      icon: Zap,
       title: 'Easy Migration',
       description: 'Move anytime, no penalties',
       gradient: 'from-purple-500/20 to-transparent',
@@ -61,11 +58,6 @@ export function VendorNeutralSection() {
               
               {/* Content */}
               <div className="relative z-10 text-center">
-                {/* Icon */}
-                <div className={`mx-auto mb-6 inline-flex rounded-xl ${feature.iconBg} p-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                  <feature.icon className={`h-8 w-8 md:h-10 md:w-10 ${feature.iconColor}`} />
-                </div>
-                
                 {/* Title */}
                 <h3 className="mb-3 text-xl md:text-2xl font-bold">
                   {feature.title}

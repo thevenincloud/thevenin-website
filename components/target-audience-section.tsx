@@ -1,17 +1,16 @@
 'use client'
 
-import { Zap, Building2, Shield, CheckCircle2 } from 'lucide-react'
-import { useState } from 'react'
+import { CheckCircle2 } from 'lucide-react'
 import Image from 'next/image'
-import { SectionWrapper } from './section-wrapper'
+import { useState } from 'react'
 import { SectionHeader } from './section-header'
+import { SectionWrapper } from './section-wrapper'
 
 export function TargetAudienceSection() {
-  const [hoveredAudience, setHoveredAudience] = useState<number | null>(null)
+  const [_, setHoveredAudience] = useState<number | null>(null)
 
   const audiences = [
     {
-      icon: Zap,
       title: 'Scaleups',
       description: 'Teams growing fast, facing development bottlenecks and losing control as more developers join the project.',
       gradient: 'from-primary/20 to-transparent',
@@ -19,7 +18,6 @@ export function TargetAudienceSection() {
       iconBg: 'bg-primary/10',
     },
     {
-      icon: Building2,
       title: 'Enterprises',
       description: 'Organizations with large dev teams, multiple products, and the need for strict governance and platform reliability.',
       gradient: 'from-blue-500/20 to-transparent',
@@ -27,7 +25,6 @@ export function TargetAudienceSection() {
       iconBg: 'bg-blue-500/10',
     },
     {
-      icon: Shield,
       title: 'Compliance Driven Industries',
       description: 'Where security, traceability, and control are essential: Defense, Fintech, Healthtech, Insurance, GovTech...',
       gradient: 'from-purple-500/20 to-transparent',
@@ -101,11 +98,6 @@ export function TargetAudienceSection() {
               
               {/* Content */}
               <div className="relative z-10">
-                {/* Icon */}
-                <div className={`mb-6 inline-flex rounded-full ${audience.iconBg} p-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                  <audience.icon className={`h-7 w-7 md:h-8 md:w-8 ${audience.iconColor}`} />
-                </div>
-                
                 {/* Title */}
                 <h3 className="mb-4 text-xl md:text-2xl lg:text-3xl font-bold text-primary">
                   {audience.title}
