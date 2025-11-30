@@ -14,9 +14,6 @@ export function FinalCTA() {
           <h2 className="mb-6 font-krona text-4xl tracking-tight text-balance md:text-5xl">
             Start building today.
           </h2>
-          <p className="mb-10 text-lg text-muted-foreground">
-            Join developers who are already shipping faster with Thevenin.
-          </p>
           <Button 
             size="lg" 
             className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-10 py-6 text-lg"

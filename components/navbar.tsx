@@ -21,8 +21,8 @@ export function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/benefits', label: 'Benefits' },
+    { href: '/pricing', label: 'Pricing' },
     { href: '/faq', label: 'FAQ' },
-    { href: '/pre-seed', label: 'Pre-Seed' },
     { href: '/contact', label: 'Contact' },
     { href: 'https://docs.thevenin.io/', label: 'Docs' },
   ]

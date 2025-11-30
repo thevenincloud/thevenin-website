@@ -569,9 +569,6 @@ export default function BenefitsPage() {
               Ready to Experience{' '}
               <span className="text-primary">These Benefits?</span>
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Join hundreds of teams already deploying faster and more securely with Thevenin.
-            </p>
             
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button 
