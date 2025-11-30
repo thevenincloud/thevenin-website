@@ -1,8 +1,8 @@
-import { Metadata } from 'next'
-import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { Linkedin } from 'lucide-react'
+import { Navbar } from '@/components/navbar'
 import { BreadcrumbSchema } from '@/components/structured-data'
+import { Linkedin } from 'lucide-react'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About Us - Meet the Thevenin Team',

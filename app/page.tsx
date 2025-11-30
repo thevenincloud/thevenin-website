@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic'
-import { Metadata } from 'next'
-import { Navbar } from '@/components/navbar'
-import { HeroSection } from '@/components/hero-section'
 import { FeaturesOverviewSection } from '@/components/features-overview-section'
-import { OrganizationSchema, WebsiteSchema, SoftwareApplicationSchema } from '@/components/structured-data'
+import { HeroSection } from '@/components/hero-section'
+import { Navbar } from '@/components/navbar'
+import { OrganizationSchema, SoftwareApplicationSchema, WebsiteSchema } from '@/components/structured-data'
+import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 
 export const metadata: Metadata = {
   title: 'Thevenin - Build like a Startup. Ship like an Enterprise.',

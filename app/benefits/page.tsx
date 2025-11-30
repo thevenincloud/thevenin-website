@@ -1,24 +1,23 @@
-import { Metadata } from 'next'
-import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
 import { Button } from '@/components/ui/button'
-import { 
-  Zap, 
-  Shield, 
-  Cloud, 
-  Layers, 
-  TrendingDown, 
+import {
+  ArrowRight,
+  Boxes,
+  Check,
+  Cloud,
   DollarSign,
+  Fingerprint,
+  Key,
+  Layers,
   Lock,
   Network,
-  Key,
-  Fingerprint,
   Server,
-  Boxes,
-  ArrowRight,
-  Check
+  Shield,
+  TrendingDown,
+  Zap
 } from 'lucide-react'
-import { BreadcrumbSchema } from '@/components/structured-data'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Benefits - Why Choose Thevenin Platform',
