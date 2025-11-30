@@ -98,7 +98,7 @@ export default function PricingPage() {
                 <span className="text-sm font-medium text-primary">Simple, transparent pricing</span>
               </motion.div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-linear-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 pb-2 bg-linear-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
                 Pricing & Tiers
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">

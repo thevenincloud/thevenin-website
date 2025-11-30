@@ -22,7 +22,7 @@ export function Footer() {
           <div>
             <h4 className="mb-4 font-semibold">Product</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-foreground">Features</a></li>
+              <li><Link href="/pricing" className="hover:text-foreground">Pricing</Link></li>
               <li><Link href="/benefits" className="hover:text-foreground">Benefits</Link></li>
               <li><Link href="/faq" className="hover:text-foreground">FAQ</Link></li>
             </ul>
@@ -56,7 +56,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border/40 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Thevenin. All rights reserved. • Simplifying complex infrastructure.</p>
+          <p>&copy; {new Date().getFullYear()} Thevenin. All rights reserved.</p>
         </div>
       </div>
     </footer>
