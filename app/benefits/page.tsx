@@ -13,9 +13,7 @@ import {
   Key,
   Fingerprint,
   Server,
-  Globe,
   Boxes,
-  Gauge,
   ArrowRight,
   Check
 } from 'lucide-react'
@@ -184,20 +182,21 @@ export default function BenefitsPage() {
       {/* Main Benefits Grid */}
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-6">
-          <div className="grid gap-12 lg:gap-16">
-            {mainBenefits.map((benefit, index) => (
-              <div
-                key={benefit.title}
-                className={`group relative ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-              >
-                <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
-                  {/* Content Side */}
-                  <div className={index % 2 === 1 ? 'lg:text-right' : ''}>
-                    <div className={`mb-4 inline-flex rounded-lg ${benefit.iconBg} p-3`}>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-8 md:gap-12">
+              {mainBenefits.map((benefit) => (
+                <div
+                  key={benefit.title}
+                  className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 transition-all hover:border-border/60 hover:shadow-lg"
+                >
+                  <div className={`absolute inset-0 bg-linear-to-br ${benefit.gradient} opacity-30`} />
+                  
+                  <div className="relative">
+                    <div className={`mb-6 inline-flex rounded-lg ${benefit.iconBg} p-3`}>
                       <benefit.icon className={`h-8 w-8 ${benefit.iconColor}`} />
                     </div>
                     
-                    <h2 className="mb-4 font-krona text-3xl tracking-tight md:text-4xl">
+                    <h2 className="mb-4 font-krona text-2xl tracking-tight md:text-3xl">
                       {benefit.title}
                     </h2>
                     
@@ -210,315 +209,18 @@ export default function BenefitsPage() {
                     </p>
 
                     {/* Features List */}
-                    <ul className={`space-y-3 ${index % 2 === 1 ? 'lg:flex lg:flex-col lg:items-end' : ''}`}>
+                    <ul className="grid gap-3 sm:grid-cols-2">
                       {benefit.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          {index % 2 === 1 && (
-                            <span className="text-foreground/90 lg:order-1">{feature}</span>
-                          )}
-                          <Check className={`h-5 w-5 shrink-0 ${benefit.iconColor} mt-0.5 ${index % 2 === 1 ? 'lg:order-2' : ''}`} />
-                          {index % 2 === 0 && (
-                            <span className="text-foreground/90">{feature}</span>
-                          )}
+                          <Check className={`h-5 w-5 shrink-0 ${benefit.iconColor} mt-0.5`} />
+                          <span className="text-sm text-foreground/90">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-
-                  {/* Visual Side */}
-                  <div className="relative">
-                    <div className={`absolute inset-0 rounded-2xl bg-linear-to-br ${benefit.gradient} blur-3xl opacity-50`} />
-                    <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card p-8 shadow-xl">
-                      {/* Effortless Infrastructure */}
-                      {benefit.title === 'Effortless Infrastructure' && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2 text-sm font-mono text-muted-foreground">
-                            <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                            <span>$ thevenin deploy</span>
-                          </div>
-                          
-                          <div className="space-y-2 font-mono text-xs">
-                            <div className="flex items-center gap-2 text-green-500">
-                              <Check className="h-3 w-3" />
-                              <span>✓ Docker image built</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-green-500">
-                              <Check className="h-3 w-3" />
-                              <span>✓ Resources allocated</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-green-500">
-                              <Check className="h-3 w-3" />
-                              <span>✓ Load balancer configured</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-green-500">
-                              <Check className="h-3 w-3" />
-                              <span>✓ Health checks passing</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-yellow-500 animate-pulse">
-                              <Zap className="h-3 w-3" />
-                              <span>→ Deploying to production...</span>
-                            </div>
-                          </div>
-
-                          <div className="pt-4 border-t border-border/30">
-                            <div className="text-xs font-mono text-muted-foreground">
-                              <div className="text-green-500 mb-1">🚀 Live at: https://app.thevenin.io</div>
-                              <div>Deploy time: 42s</div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Secure by Default */}
-                      {benefit.title === 'Secure by Default' && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Shield className="h-4 w-4 text-green-500" />
-                            <span>Security Status</span>
-                          </div>
-                          
-                          <div className="space-y-3">
-                            <div className="rounded-lg border border-green-500/30 bg-green-500/5 p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                  <Fingerprint className="h-4 w-4 text-green-500" />
-                                  <span className="text-sm font-medium">MFA Enabled</span>
-                                </div>
-                                <Check className="h-4 w-4 text-green-500" />
-                              </div>
-                              <div className="text-xs text-muted-foreground">All users authenticated</div>
-                            </div>
-
-                            <div className="rounded-lg border border-green-500/30 bg-green-500/5 p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                  <Network className="h-4 w-4 text-green-500" />
-                                  <span className="text-sm font-medium">eBPF Isolation</span>
-                                </div>
-                                <Check className="h-4 w-4 text-green-500" />
-                              </div>
-                              <div className="text-xs text-muted-foreground">Network policies active</div>
-                            </div>
-
-                            <div className="rounded-lg border border-green-500/30 bg-green-500/5 p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                  <Lock className="h-4 w-4 text-green-500" />
-                                  <span className="text-sm font-medium">Encryption</span>
-                                </div>
-                                <Check className="h-4 w-4 text-green-500" />
-                              </div>
-                              <div className="text-xs text-muted-foreground">Data encrypted at rest & transit</div>
-                            </div>
-                          </div>
-
-                          <div className="pt-4 border-t border-border/30 text-center">
-                            <div className="text-xs text-green-500 font-semibold">100% Compliant</div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Portable and Vendor Neutral */}
-                      {benefit.title === 'Portable and Vendor Neutral' && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                            <Globe className="h-4 w-4 text-blue-500" />
-                            <span>Multi-Cloud Deployment</span>
-                          </div>
-                          
-                          <div className="space-y-2">
-                            <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-4">
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <div className="flex items-center gap-2 mb-1">
-                                    <Cloud className="h-4 w-4 text-blue-500" />
-                                    <span className="text-sm font-medium">Thevenin Cloud</span>
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">app-prod-01</div>
-                                </div>
-                                <div className="text-green-500 text-xs font-semibold">Active</div>
-                              </div>
-                            </div>
-
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-4">
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <div className="flex items-center gap-2 mb-1">
-                                    <Server className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm font-medium">AWS (BYOC)</span>
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">app-staging-02</div>
-                                </div>
-                                <div className="text-muted-foreground text-xs">Ready</div>
-                              </div>
-                            </div>
-
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-4">
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <div className="flex items-center gap-2 mb-1">
-                                    <Server className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm font-medium">GCP (BYOC)</span>
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">app-dev-03</div>
-                                </div>
-                                <div className="text-muted-foreground text-xs">Ready</div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="pt-2 text-center text-xs text-muted-foreground">
-                            Switch providers anytime • No lock-in
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Built for Modern Architectures */}
-                      {benefit.title === 'Built for Modern Architectures' && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                            <Layers className="h-4 w-4 text-purple-500" />
-                            <span>Microservices Architecture</span>
-                          </div>
-                          
-                          <div className="space-y-3">
-                            {[
-                              { name: 'API Gateway', instances: 3, cpu: '85%', status: 'healthy' },
-                              { name: 'Auth Service', instances: 2, cpu: '45%', status: 'healthy' },
-                              { name: 'User Service', instances: 4, cpu: '72%', status: 'healthy' },
-                              { name: 'Payment Service', instances: 2, cpu: '38%', status: 'healthy' },
-                            ].map((service, i) => (
-                              <div key={service.name} className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                                <div className="flex items-center justify-between mb-2">
-                                  <div className="flex items-center gap-2">
-                                    <div className="h-2 w-2 rounded-full bg-green-500" />
-                                    <span className="text-sm font-medium">{service.name}</span>
-                                  </div>
-                                  <span className="text-xs text-muted-foreground">{service.instances}x</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <div className="flex-1 h-1.5 rounded-full bg-muted-foreground/20">
-                                    <div 
-                                      className="h-full rounded-full bg-purple-500"
-                                      style={{ width: service.cpu }}
-                                    />
-                                  </div>
-                                  <span className="text-xs text-muted-foreground w-10">{service.cpu}</span>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="pt-2 border-t border-border/30 text-center text-xs text-muted-foreground">
-                            Auto-scaling • Load balanced • Service mesh ready
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Efficient Resource Usage */}
-                      {benefit.title === 'Efficient Resource Usage' && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                            <Gauge className="h-4 w-4 text-green-500" />
-                            <span>Resource Optimization</span>
-                          </div>
-                          
-                          <div className="space-y-3">
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs font-medium">CPU Usage</span>
-                                <span className="text-xs text-green-500">-45% vs traditional</span>
-                              </div>
-                              <div className="h-2 rounded-full bg-muted-foreground/20">
-                                <div className="h-full rounded-full bg-green-500" style={{ width: '55%' }} />
-                              </div>
-                              <div className="flex justify-between mt-1 text-xs text-muted-foreground">
-                                <span>0.5 cores</span>
-                                <span>of 2 cores</span>
-                              </div>
-                            </div>
-
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs font-medium">Memory</span>
-                                <span className="text-xs text-green-500">-38% vs traditional</span>
-                              </div>
-                              <div className="h-2 rounded-full bg-muted-foreground/20">
-                                <div className="h-full rounded-full bg-green-500" style={{ width: '62%' }} />
-                              </div>
-                              <div className="flex justify-between mt-1 text-xs text-muted-foreground">
-                                <span>248 MB</span>
-                                <span>of 512 MB</span>
-                              </div>
-                            </div>
-
-                            <div className="rounded-lg border border-green-500/30 bg-green-500/5 p-3">
-                              <div className="text-xs font-medium mb-1">Cost Savings</div>
-                              <div className="text-2xl font-bold text-green-500">$847<span className="text-sm text-muted-foreground">/month</span></div>
-                              <div className="text-xs text-muted-foreground mt-1">Compared to over-provisioned setup</div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Predictable, Fair Billing */}
-                      {benefit.title === 'Predictable, Fair Billing' && (
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                            <DollarSign className="h-4 w-4 text-indigo-500" />
-                            <span>This Month&apos;s Usage</span>
-                          </div>
-                          
-                          <div className="space-y-2">
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                              <div className="flex items-center justify-between mb-1">
-                                <span className="text-xs font-medium">CPU Hours</span>
-                                <span className="text-sm font-semibold">$42.50</span>
-                              </div>
-                              <div className="text-xs text-muted-foreground">1,250 core-hours @ $0.034/hr</div>
-                            </div>
-
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                              <div className="flex items-center justify-between mb-1">
-                                <span className="text-xs font-medium">Memory</span>
-                                <span className="text-sm font-semibold">$28.80</span>
-                              </div>
-                              <div className="text-xs text-muted-foreground">720 GB-hours @ $0.04/GB</div>
-                            </div>
-
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                              <div className="flex items-center justify-between mb-1">
-                                <span className="text-xs font-medium">Storage</span>
-                                <span className="text-sm font-semibold">$15.00</span>
-                              </div>
-                              <div className="text-xs text-muted-foreground">50 GB @ $0.30/GB</div>
-                            </div>
-
-                            <div className="rounded-lg border border-border/30 bg-muted/10 p-3">
-                              <div className="flex items-center justify-between mb-1">
-                                <span className="text-xs font-medium">Bandwidth</span>
-                                <span className="text-sm font-semibold">$8.70</span>
-                              </div>
-                              <div className="text-xs text-muted-foreground">87 GB @ $0.10/GB</div>
-                            </div>
-                          </div>
-
-                          <div className="pt-3 border-t border-border/30">
-                            <div className="flex items-center justify-between">
-                              <span className="text-sm font-semibold">Total</span>
-                              <span className="text-2xl font-bold text-indigo-500">$95.00</span>
-                            </div>
-                            <div className="text-xs text-muted-foreground text-center mt-2">
-                              No surprises • Pay per use • Cancel anytime
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

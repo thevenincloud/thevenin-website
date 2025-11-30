@@ -1,38 +1,65 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { Linkedin, Mail } from 'lucide-react'
+import { Linkedin } from 'lucide-react'
 
 export default function AboutPage() {
   const team = [
     {
-      name: 'Team Member 1',
-      role: 'Co-Founder & CEO',
-      image: '/professional-headshot-portrait-ceo-tech-startup.jpg',
+      name: 'Gabriel Olivieri',
+      role: 'CEO, Founder',
+      description: '8 years of experience in Platform/DevOps Engineering',
+      credentials: [
+        'Executive MBA Candidate',
+        'Certified Kubernetes and AWS Engineer',
+        'Thorough experience developing cloud infrastructure and internal development platforms in a wide range of industries and scales'
+      ],
+      image: '/teams/gabriel.png',
+      linkedin: 'https://www.linkedin.com/in/gabriel-olivieri-cervilla/',
     },
     {
-      name: 'Team Member 2',
-      role: 'Co-Founder & CTO',
-      image: '/professional-headshot-portrait-cto-tech-startup.jpg',
+      name: 'Tomás González',
+      role: 'CXO, Co-Founder',
+      description: '11 years of experience in Software Development',
+      credentials: [
+        'Specialized in Frontend Development and User Experiences',
+        'Thorough experience with developing and managing B2B SaaS products under compliance standards'
+      ],
+      image: '/teams/tomas.png',
+      linkedin: 'https://www.linkedin.com/in/tomas-gonzalez-silva',
     },
     {
-      name: 'Team Member 3',
-      role: 'Head of Engineering',
-      image: '/professional-headshot-portrait-engineer-tech-start.jpg',
+      name: 'Gabriela Pérez',
+      role: 'PR & Brand Designer',
+      description: 'Founder of Ghala Studio',
+      credentials: [
+        'Specialized in brand strategy, communication, and visual identity systems',
+        'Experienced in creative and art direction and developing brand experiences across different media'
+      ],
+      image: '/teams/gabriela.png',
+      linkedin: 'https://www.linkedin.com/in/gabypvisual/',
     },
   ]
 
   const advisors = [
     {
-      name: 'Advisor 1',
-      role: 'Industry Advisor',
-      company: 'Former VP at Major Cloud Provider',
-      image: '/professional-headshot-portrait-tech-advisor.jpg',
+      name: 'Keith Camilleri',
+      role: 'Mentor',
+      description: '10 years creating and Scaling Companies',
+      credentials: [
+        'Has been CEO, CTO and COO of multiple different enterprises',
+        'Serial Founder and owner of 20+ companies in the fintech and compliance market'
+      ],
+      linkedin: 'https://www.linkedin.com/in/keithcamilleri/',
     },
     {
-      name: 'Advisor 2',
-      role: 'Technical Advisor',
-      company: 'Infrastructure Architect',
-      image: '/professional-headshot-portrait-technical-advisor.jpg',
+      name: 'María Antonia Cervilla',
+      role: 'Mentor',
+      description: 'PhD in Innovation and Business Development',
+      credentials: [
+        'Has mentored multiple Startups in IESA EmprendeTech Program',
+        'ex Vice President of PTS Tech Park'
+      ],
+      linkedin: 'https://www.linkedin.com/in/mar%C3%ADa-antonia-cervilla-ruano-02862394/',
     },
   ]
 
@@ -56,32 +83,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-20 border-y border-border/40">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-4xl">
-            <div className="grid gap-12 lg:grid-cols-2">
-              <div>
-                <h2 className="font-heading text-3xl font-bold">Our Mission</h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  To democratize cloud infrastructure by providing a vendor-neutral platform 
-                  that empowers developers to deploy, scale, and manage applications without 
-                  the complexity of traditional cloud providers.
-                </p>
-              </div>
-              <div>
-                <h2 className="font-heading text-3xl font-bold">Our Vision</h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  A world where infrastructure decisions are driven by performance and cost, 
-                  not vendor lock-in. Where developers spend time building products, not 
-                  managing servers.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Team Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
@@ -99,29 +100,34 @@ export default function AboutPage() {
                   key={member.name}
                   className="group relative overflow-hidden rounded-lg border border-border/40 bg-muted/20 transition-all hover:border-border/60"
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className="aspect-square overflow-hidden bg-black">
                     <img
                       src={member.image || "/placeholder.svg"}
                       alt={member.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">
                     <h3 className="font-heading text-xl font-bold">{member.name}</h3>
-                    <p className="mt-1 text-sm text-primary">{member.role}</p>
+                    <p className="mt-1 text-sm text-primary font-medium">{member.role}</p>
+                    <p className="mt-3 text-sm text-muted-foreground">{member.description}</p>
+                    <ul className="mt-3 space-y-1">
+                      {member.credentials.map((credential, index) => (
+                        <li key={index} className="text-xs text-muted-foreground">
+                          • {credential}
+                        </li>
+                      ))}
+                    </ul>
                     <div className="mt-4 flex gap-3">
-                      <button
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex h-9 w-9 items-center justify-center rounded-md border border-border/40 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
                         aria-label="LinkedIn"
                       >
                         <Linkedin className="h-4 w-4" />
-                      </button>
-                      <button
-                        className="flex h-9 w-9 items-center justify-center rounded-md border border-border/40 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                        aria-label="Email"
-                      >
-                        <Mail className="h-4 w-4" />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -146,20 +152,31 @@ export default function AboutPage() {
               {advisors.map((advisor) => (
                 <div
                   key={advisor.name}
-                  className="group flex gap-6 rounded-lg border border-border/40 bg-background p-6 transition-all hover:border-border/60"
+                  className="group rounded-lg border border-border/40 bg-background p-8 transition-all hover:border-border/60"
                 >
-                  <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg">
-                    <img
-                      src={advisor.image || "/placeholder.svg"}
-                      alt={advisor.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="font-heading text-2xl font-bold">{advisor.name}</h3>
+                      <p className="mt-2 text-base text-primary font-medium">{advisor.role}</p>
+                    </div>
+                    <a
+                      href={advisor.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-border/40 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
                   </div>
-                  <div className="flex flex-col justify-center">
-                    <h3 className="font-heading text-xl font-bold">{advisor.name}</h3>
-                    <p className="mt-1 text-sm text-primary">{advisor.role}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{advisor.company}</p>
-                  </div>
+                  <p className="mt-4 text-sm text-muted-foreground">{advisor.description}</p>
+                  <ul className="mt-4 space-y-2">
+                    {advisor.credentials.map((credential, index) => (
+                      <li key={index} className="text-sm text-muted-foreground">
+                        • {credential}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
