@@ -39,7 +39,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row pt-4">
             <Button 
               size="lg" 
-              className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto"
+              className="group bg-primary text-primary-foreground text-base font-semibold px-8 py-6 shadow-lg shadow-primary/25 transition-all duration-300 w-full sm:w-auto"
               asChild
             >
               <a href="https://apps.thevenin.io/login">
