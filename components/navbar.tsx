@@ -73,7 +73,7 @@ export function Navbar() {
                 className="font-medium"
                 asChild
               >
-                <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA">Book Meeting</a>
+                <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer">Book Meeting</a>
               </Button>
               <Button 
                 size="sm" 

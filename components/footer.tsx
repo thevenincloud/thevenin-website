@@ -59,6 +59,9 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/40 pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Thevenin. All rights reserved.</p>
+          <p className="mt-4 text-xs">
+            Thevenin OÜ, a company registered in Estonia under Registration Number: EE102770885 and with Registered Address at Harju maakond, Tallinn, Põhja-Tallinna linnaosa, Tööstuse tn 75-71, 10416, Estonia.
+          </p>
         </div>
       </div>
     </footer>
