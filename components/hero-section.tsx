@@ -27,11 +27,11 @@ export function HeroSection() {
           {/* Supporting text with better hierarchy */}
           <div className="space-y-4">
             <p className="mx-auto max-w-2xl text-body-large">
-              Thevenin’s platform makes applications deployments effortless and scalable; while enforcing the governance, security and data sovereignty standards for enterprises.
+              Thevenin’s platform makes applications deployments effortless and scalable; while enforcing the governance, security and data sovereignty standards for enterprises
             </p>
 
             <p className="mx-auto max-w-2xl text-body">
-              Deploy the platform in your own cloud, you are in control.
+              Deploy the platform in your own cloud, you are in control
             </p>
           </div>
 
@@ -53,8 +53,8 @@ export function HeroSection() {
               className="border-2 border-border hover:border-primary/50 text-foreground hover:bg-muted/50 text-base font-semibold px-8 py-6 transition-all duration-300 w-full sm:w-auto"
               asChild
             >
-              <a href="https://docsend.com/view/ypqcc6ymzq8c84ss" target="_blank" rel="noopener noreferrer">
-                View Sales Deck
+              <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer">
+                Book Meeting
               </a>
             </Button>
           </div>

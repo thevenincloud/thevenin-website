@@ -73,7 +73,7 @@ export function Navbar() {
                 className="font-medium"
                 asChild
               >
-                <a href="https://apps.thevenin.io/login">Sign In</a>
+                <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA">Book Meeting</a>
               </Button>
               <Button 
                 size="sm" 
@@ -146,7 +146,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <a href="https://apps.thevenin.io/login">Sign In</a>
+                <a href="/contact">Book Meeting</a>
               </Button>
               <Button 
                 className="w-full bg-[#CDFF8C] text-black font-medium"
