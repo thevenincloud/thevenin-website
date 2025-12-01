@@ -16,8 +16,8 @@ export function Footer() {
               loading="lazy"
             />
             <p className="text-sm text-muted-foreground">
-              Build like a Startup. 
-              Ship like an Enterprise.
+              Build like a Startup<br />
+              Ship like an Enterprise
             </p>
           </div>
 

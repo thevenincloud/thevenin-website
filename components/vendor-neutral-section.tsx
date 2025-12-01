@@ -6,7 +6,7 @@ import { SectionWrapper } from './section-wrapper'
 import { SectionHeader } from './section-header'
 
 export function VendorNeutralSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [_, setHoveredIndex] = useState<number | null>(null)
 
   const features = [
     {
@@ -30,6 +30,13 @@ export function VendorNeutralSection() {
       iconColor: 'text-purple-500',
       iconBg: 'bg-purple-500/10',
     },
+    {
+      title: 'Compliant Access',
+      description: 'Use within your internal network or VPN',
+      gradient: 'from-green-500/20 to-transparent',
+      iconColor: 'text-green-500',
+      iconBg: 'bg-green-500/10',
+    }
   ]
 
   return (
@@ -45,11 +52,11 @@ export function VendorNeutralSection() {
           description="Deploy Thevenin on your own infrastructure. You are free to move."
         />
 
-        <div className="grid-responsive-3 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-6 md:p-8 lg:p-10 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-6 md:p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

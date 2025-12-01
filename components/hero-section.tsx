@@ -21,7 +21,7 @@ export function HeroSection() {
           
           {/* Subtitle with emphasis */}
           <p className="mx-auto max-w-3xl text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed text-muted-foreground font-medium">
-            Get the power of an Enterprise grade platform without the engineering overhead.
+            Get the power of an Enterprise grade platform without the engineering overhead
           </p>
 
           {/* Supporting text with better hierarchy */}

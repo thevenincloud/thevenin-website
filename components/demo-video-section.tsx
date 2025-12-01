@@ -149,8 +149,6 @@ export function DemoVideoSection() {
                 </button>
               </div>
             </div>
-
-
           </div>
       </div>
     </SectionWrapper>
