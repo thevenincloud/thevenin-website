@@ -63,13 +63,24 @@ export function CookieBanner() {
   }
 
   const enableApollo = () => {
-    // Apollo.io tracking enable logic
-    // Add your Apollo.io initialization here if needed
+    // Dispatch custom event to trigger Apollo.io loading
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('cookie-consent-change', {
+        detail: { marketing: true }
+      }))
+    }
   }
 
   const disableApollo = () => {
-    // Apollo.io tracking disable logic
-    // Add your Apollo.io disable logic here if needed
+    // Dispatch custom event to disable Apollo.io
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('cookie-consent-change', {
+        detail: { marketing: false }
+      }))
+      // Remove Apollo.io scripts if they exist
+      const apolloScripts = document.querySelectorAll('script[src*="apollo.io"]')
+      apolloScripts.forEach(script => script.remove())
+    }
   }
 
   const acceptAll = () => {

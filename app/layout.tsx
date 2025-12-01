@@ -1,5 +1,6 @@
 import { CookieBanner } from '@/components/cookie-banner'
 import { GoogleAnalytics } from '@/components/google-analytics'
+import { ApolloTracking } from '@/components/apollo-tracking'
 import { WebVitals } from '@/components/web-vitals'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
@@ -125,10 +126,12 @@ export default function RootLayout({
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://assets.apollo.io" />
       </head>
       <body className={`${lexend.variable} ${kronaOne.variable} font-sans antialiased`}>
         <WebVitals />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+        <ApolloTracking apolloId={process.env.NEXT_PUBLIC_APOLLO_ID || ''} />
         {children}
         <Analytics />
         <CookieBanner />
