@@ -22,7 +22,7 @@ export function Navbar() {
     { href: '/about', label: 'About' },
     { href: '/benefits', label: 'Benefits' },
     { href: '/pricing', label: 'Pricing' },
-    { href: '/faq', label: 'FAQ' },
+    // { href: '/faq', label: 'FAQ' },
     { href: '/contact', label: 'Contact' },
     { href: 'https://docs.thevenin.io/', label: 'Docs' },
   ]
