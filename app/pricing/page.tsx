@@ -168,8 +168,8 @@ export default function PricingPage() {
               ))}
             </div>
 
-            {/* BYOC Section */}
-            <motion.div
+            {/* We should all supported Providers here */}
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -178,7 +178,7 @@ export default function PricingPage() {
               <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                    BYOC and Cloud Solutions{' '}
+                    Available Cloud Marketplaces{' '}
                     <span className="text-primary">for all Tiers</span>
                   </h3>
                   <p className="text-lg mb-4 text-muted-foreground leading-relaxed">
@@ -221,7 +221,7 @@ export default function PricingPage() {
                   </motion.div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Bottom CTA */}
             <motion.div
