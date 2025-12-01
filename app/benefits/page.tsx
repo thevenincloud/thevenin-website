@@ -45,7 +45,7 @@ export default function BenefitsPage() {
       features: [
         'Zero DevOps knowledge required',
         'Automated setup and maintenance',
-        'Instant deployment pipelines',
+        'Instant application deployment',
         'Self-healing infrastructure'
       ]
     },
@@ -53,7 +53,7 @@ export default function BenefitsPage() {
       icon: Shield,
       title: 'Secure by Default',
       description: 'Designed with strong isolation and compliance in mind.',
-      details: 'MFA is mandatory for all users. Environments are network isolated with eBPF. Containers are sandboxed in gVisor. Volumes are encrypted with KMS, Secrets with age keys and Endpoints with TLS. mTLS is available in Prod Tier.',
+      details: 'MFA is mandatory for all users. Environments are network isolated with eBPF. Containers are sandboxed in gVisor. Volumes are encrypted with KMS, Public Endpoints with TLS and Private Endpoints with mTLS. All Files, Variables and Configs are handled as Secrets',
       gradient: 'from-primary/20 via-green-500/10 to-transparent',
       iconColor: 'text-primary',
       iconBg: 'bg-primary/10',
@@ -61,22 +61,22 @@ export default function BenefitsPage() {
         'Mandatory MFA authentication',
         'Network isolation with eBPF',
         'Container sandboxing with gVisor',
-        'End-to-end encryption (KMS, age, TLS)',
-        'mTLS support in Production tier'
+        'KMS Data at rest encryption',
+        'TLS and mTLS Data in-transit encryption',
+        'Configs as Secrets by default'
       ]
     },
     {
       icon: Cloud,
       title: 'Portable and Vendor Neutral',
       description: 'Thevenin is designed to run anywhere.',
-      details: 'Avoid vendor-lock-in by deploying apps to different hyperscalers in our cloud solution or by using your own cloud with Bring Your Own Cloud (BYOC) to integrate your existing services.',
+      details: 'Avoid vendor-lock-in by using Thevenin in your own Cloud Infrastructure. Keep control of your data and applications.',
       gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent',
       iconColor: 'text-blue-500',
       iconBg: 'bg-blue-500/10',
       features: [
-        'Multi-cloud deployment options',
+        'Use in your internal network or VPN',
         'No vendor lock-in',
-        'BYOC (Bring Your Own Cloud)',
         'Seamless cloud migration',
         'Integrate with existing services'
       ]
@@ -91,10 +91,9 @@ export default function BenefitsPage() {
       iconBg: 'bg-purple-500/10',
       features: [
         'Multi-tiered architecture support',
-        'Microservices-ready platform',
-        'Modular deployment patterns',
+        'Low latency between services',
         'Consistent performance at scale',
-        'Service mesh integration'
+        'Efficient Resource Allocation'
       ]
     },
     {
@@ -106,9 +105,8 @@ export default function BenefitsPage() {
       iconColor: 'text-green-500',
       iconBg: 'bg-green-500/10',
       features: [
+        'Lower Cloud Costs',
         'Dynamic resource allocation',
-        'Optimized for microservices',
-        'Minimal resource overhead',
         'Efficient scaling mechanisms',
         'Resource usage analytics'
       ]
@@ -116,16 +114,15 @@ export default function BenefitsPage() {
     {
       icon: DollarSign,
       title: 'Predictable, Fair Billing',
-      description: 'Pay only for what you use: CPU, RAM, storage, and bandwidth.',
+      description: 'Pay only for the vCPU your apps use. Set monthly limits to what you will pay for Thevenin and your Cloud.',
       details: 'Thevenin\'s transparent billing and resource quotas help control costs and prevent overuse in development environments.',
       gradient: 'from-indigo-500/20 via-blue-500/10 to-transparent',
       iconColor: 'text-indigo-500',
       iconBg: 'bg-indigo-500/10',
       features: [
-        'Usage-based pricing',
-        'Transparent cost breakdown',
+        'Keep on budget with monthly limits',
+        'Simple Usage-based pricing',
         'Resource quotas & limits',
-        'Development environment controls',
         'No hidden fees'
       ]
     },
@@ -136,8 +133,8 @@ export default function BenefitsPage() {
     { icon: Network, text: 'eBPF Network Isolation' },
     { icon: Boxes, text: 'gVisor Container Sandboxing' },
     { icon: Key, text: 'KMS Volume Encryption' },
-    { icon: Fingerprint, text: 'Age-encrypted Secrets' },
-    { icon: Server, text: 'TLS Endpoints' },
+    { icon: Fingerprint, text: 'Secrets by Default' },
+    { icon: Server, text: 'TLS and mTLS Endpoints' },
   ]
 
   return (
@@ -164,7 +161,7 @@ export default function BenefitsPage() {
             </h1>
             
             <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Discover how Thevenin redefines PaaS by simplifying infrastructure with security and reliability in mind.
+              Discover how Thevenin redefines PaaS to make it safe and compliant.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -268,9 +265,9 @@ export default function BenefitsPage() {
 
             <div className="mt-12 rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center">
               <Shield className="mx-auto h-12 w-12 text-primary mb-4" />
-              <h3 className="mb-2 text-xl font-bold">Production-Ready mTLS</h3>
+              <h3 className="mb-2 text-xl font-bold">Zero Trust Security</h3>
               <p className="text-muted-foreground">
-                Mutual TLS authentication available in Production tier for service-to-service communication.
+                Thevenin ensures that every access request is thoroughly verified and encrypted, regardless of its origin, minimizing potential attack surface.
               </p>
             </div>
           </div>

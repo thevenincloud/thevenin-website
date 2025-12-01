@@ -27,11 +27,11 @@ export function HeroSection() {
           {/* Supporting text with better hierarchy */}
           <div className="space-y-4">
             <p className="mx-auto max-w-2xl text-body-large">
-              Thevenin's platform makes applications deployments effortless and scalable; while enforcing the governance, security and reliability standards of enterprise companies.
+              Thevenin’s platform makes applications deployments effortless and scalable; while enforcing the governance, security and data sovereignty standards for enterprises.
             </p>
 
             <p className="mx-auto max-w-2xl text-body">
-              Use the platform in our cloud or deploy it in your own, you are in control.
+              Deploy the platform in your own cloud, you are in control.
             </p>
           </div>
 

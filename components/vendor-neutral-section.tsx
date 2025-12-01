@@ -10,8 +10,8 @@ export function VendorNeutralSection() {
 
   const features = [
     {
-      title: 'Flexible Hosting',
-      description: 'Deploy on our cloud or yours',
+      title: 'Compliant Access',
+      description: 'Use it in your cloud, within your internal network or VPN',
       gradient: 'from-blue-500/20 to-transparent',
       iconColor: 'text-blue-500',
       iconBg: 'bg-blue-500/10',
@@ -42,7 +42,7 @@ export function VendorNeutralSection() {
               <span className="text-primary">No Vendor Lock-in.</span>
             </>
           }
-          description="Use our optimized cloud or deploy Thevenin on your own infrastructure (BYOC - Bring Your Own Cloud). You are free to move."
+          description="Deploy Thevenin on your own infrastructure. You are free to move."
         />
 
         <div className="grid-responsive-3 max-w-5xl mx-auto">

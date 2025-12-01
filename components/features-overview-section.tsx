@@ -27,7 +27,7 @@ export function FeaturesOverviewSection() {
       iconColor: 'text-blue-500',
       iconBg: 'bg-blue-500/10',
       borderColor: 'border-blue-500/30',
-      details: ['Multi-cloud Support', 'BYOC Available', 'No Vendor Lock-in', 'Easy Migration']
+      details: ['Multi-cloud Support', 'Data Sovereignty', 'No Vendor Lock-in', 'Easy Migration']
     },
     {
       icon: Workflow,
@@ -47,7 +47,7 @@ export function FeaturesOverviewSection() {
       iconColor: 'text-purple-500',
       iconBg: 'bg-purple-500/10',
       borderColor: 'border-purple-500/30',
-      details: ['Microservices Ready', 'Service Mesh Compatible', 'Modular Deployment', 'Scale per Service']
+      details: ['Microservices Ready', 'Efficient Resource Allocation', 'Modular Deployment', 'Scale per Service']
     },
     {
       icon: ScrollText,
