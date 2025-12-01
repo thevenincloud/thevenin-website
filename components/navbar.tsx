@@ -22,7 +22,7 @@ export function Navbar() {
     { href: '/about', label: 'About' },
     { href: '/benefits', label: 'Benefits' },
     { href: '/pricing', label: 'Pricing' },
-    { href: '/faq', label: 'FAQ' },
+    // { href: '/faq', label: 'FAQ' },
     { href: '/contact', label: 'Contact' },
     { href: 'https://docs.thevenin.io/', label: 'Docs' },
   ]
@@ -73,7 +73,7 @@ export function Navbar() {
                 className="font-medium"
                 asChild
               >
-                <a href="https://apps.thevenin.io/login">Sign In</a>
+                <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer">Book Meeting</a>
               </Button>
               <Button 
                 size="sm" 
@@ -146,7 +146,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 asChild
               >
-                <a href="https://apps.thevenin.io/login">Sign In</a>
+                <a href="/contact">Book Meeting</a>
               </Button>
               <Button 
                 className="w-full bg-[#CDFF8C] text-black font-medium"

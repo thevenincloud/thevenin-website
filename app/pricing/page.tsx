@@ -20,11 +20,10 @@ export default function PricingPage() {
       borderColor: 'border-blue-500/20',
       hoverBorder: 'hover:border-blue-500/50',
       features: [
-        'Full platform access',
-        'Development tools',
-        'Community support',
-        'Basic monitoring',
-        'Standard security',
+        'Deploy Experimental Applications',
+        'Security Guarantees',
+        'Community Support',
+        'Onboarding Support',
       ],
       popular: false,
     },
@@ -40,13 +39,10 @@ export default function PricingPage() {
       borderColor: 'border-primary/30',
       hoverBorder: 'hover:border-primary',
       features: [
-        'Everything in Dev',
-        'Guaranteed uptime SLA',
-        'Priority support',
-        'Advanced monitoring',
-        'Enhanced security',
-        'Auto-scaling',
-        'Disaster recovery',
+        'Guaranteed Uptime SLA',
+        'Priority Support',
+        'Disaster Recovery',
+        'Compliance Support'
       ],
       popular: false,
     },
@@ -62,14 +58,10 @@ export default function PricingPage() {
       borderColor: 'border-purple-500/20',
       hoverBorder: 'hover:border-purple-500/50',
       features: [
-        'Everything in Prod',
         'White-label solution',
-        'Dedicated support team',
-        'Custom integrations',
-        'On-premises deployment',
-        'Custom SLA',
-        'Security compliance',
-        'Training & onboarding',
+        'Dedicated Support Team',
+        'Custom Services and Integrations',
+        'Personalized Training and Onboarding',
       ],
       popular: false,
     },
@@ -176,8 +168,8 @@ export default function PricingPage() {
               ))}
             </div>
 
-            {/* BYOC Section */}
-            <motion.div
+            {/* We should all supported Providers here */}
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -186,7 +178,7 @@ export default function PricingPage() {
               <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                    BYOC and Cloud Solutions{' '}
+                    Available Cloud Marketplaces{' '}
                     <span className="text-primary">for all Tiers</span>
                   </h3>
                   <p className="text-lg mb-4 text-muted-foreground leading-relaxed">
@@ -229,7 +221,7 @@ export default function PricingPage() {
                   </motion.div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Bottom CTA */}
             <motion.div

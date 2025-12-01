@@ -25,7 +25,7 @@ export function FinalCTA() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button 
             size="lg" 
-            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg font-semibold px-10 py-6 md:px-12 md:py-7 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto"
+            className="group bg-primary text-primary-foreground text-base md:text-lg font-semibold px-10 py-6 md:px-12 md:py-7 shadow-primary/30 hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto"
             asChild
           >
             <a href="https://apps.thevenin.io/signup">

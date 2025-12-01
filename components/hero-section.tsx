@@ -53,8 +53,8 @@ export function HeroSection() {
               className="border-2 border-border hover:border-primary/50 text-foreground hover:bg-muted/50 text-base font-semibold px-8 py-6 transition-all duration-300 w-full sm:w-auto"
               asChild
             >
-              <a href="https://docsend.com/view/ypqcc6ymzq8c84ss" target="_blank" rel="noopener noreferrer">
-                View Sales Deck
+              <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer">
+                Book Meeting
               </a>
             </Button>
           </div>
