@@ -53,7 +53,7 @@ export default function BenefitsPage() {
       icon: Shield,
       title: 'Secure by Default',
       description: 'Designed with strong isolation and compliance in mind.',
-      details: 'MFA is mandatory for all users. Environments are network isolated with eBPF. Containers are sandboxed in gVisor. Volumes are encrypted with KMS, Secrets with age keys and Endpoints with TLS. mTLS is available in Prod Tier.',
+      details: 'MFA is mandatory for all users. Environments are network isolated with eBPF. Containers are sandboxed in gVisor. Volumes are encrypted with KMS, Public Endpoints with TLS and Private Endpoints with mTLS. All Files and Variables are handled as Secrets.',
       gradient: 'from-primary/20 via-green-500/10 to-transparent',
       iconColor: 'text-primary',
       iconBg: 'bg-primary/10',
@@ -61,8 +61,9 @@ export default function BenefitsPage() {
         'Mandatory MFA authentication',
         'Network isolation with eBPF',
         'Container sandboxing with gVisor',
-        'End-to-end encryption (KMS, age, TLS)',
-        'mTLS support in Production tier'
+        'KMS data Encryption',
+        'TLS and mTLS support',
+        'Configs as Secrets by default'
       ]
     },
     {
@@ -164,7 +165,7 @@ export default function BenefitsPage() {
             </h1>
             
             <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Discover how Thevenin redefines PaaS by simplifying infrastructure with security and reliability in mind.
+              Discover how Thevenin redefines PaaS to make it safe and compliant. 
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
