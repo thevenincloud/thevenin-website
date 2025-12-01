@@ -22,12 +22,12 @@ export function FeaturesOverviewSection() {
     {
       icon: Cloud,
       title: 'Portability & Vendor Neutrality',
-      description: 'Run Thevenin across clouds or in your own infrastructure (BYOC).',
+      description: 'Run Thevenin in your own infrastructure, be it the Cloud or Onpremises.',
       gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent',
       iconColor: 'text-blue-500',
       iconBg: 'bg-blue-500/10',
       borderColor: 'border-blue-500/30',
-      details: ['Multi-cloud Support', 'Data Sovereignty', 'No Vendor Lock-in', 'Easy Migration']
+      details: ['Data Sovereignty', 'No Vendor Lock-in', 'Easy Migration', 'Airgapped Version']
     },
     {
       icon: Workflow,
