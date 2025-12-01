@@ -149,37 +149,7 @@ export function DemoVideoSection() {
                 </button>
               </div>
             </div>
-
-
           </div>
-
-        {/* Stats */}
-        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 text-center">
-          <div className="p-6 rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg">
-            <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
-              &lt;30s
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground font-medium">
-              Average Deploy Time
-            </div>
-          </div>
-          <div className="p-6 rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg">
-            <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
-              99.9%
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground font-medium">
-              Uptime SLA
-            </div>
-          </div>
-          <div className="p-6 rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg">
-            <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
-              24/7
-            </div>
-            <div className="text-sm md:text-base text-muted-foreground font-medium">
-              Support Available
-            </div>
-          </div>
-        </div>
       </div>
     </SectionWrapper>
   )
