@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           </h1>
           <p className="text-muted-foreground text-lg mb-2">Last updated on 06 Oct 2025</p>
           <p className="text-base md:text-lg text-foreground mb-4">
-            This Privacy Policy describes how Thevenin OÜ (“Thevenin”, “we”, “our”, “us”) collects, processes, and protects your personal data when you use our website and beta services at <a href="https://thevenin.io" className="text-primary underline">https://thevenin.io</a> (the “Platform”).
+            This Privacy Policy describes how Thevenin OÜ (“Thevenin”, “we”, “our”, “us”) collects, processes, and protects your personal data when you use our website and services at <a href="https://thevenin.io" className="text-primary underline">https://thevenin.io</a> (the “Platform”).
           </p>
           <p className="text-base md:text-lg text-foreground mb-4">
             We are committed to protecting your privacy and complying with the EU General Data Protection Regulation (GDPR) and Estonian data protection laws.
@@ -68,7 +68,7 @@ export default function PrivacyPolicy() {
                 </ul>
               </div>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">We do not collect payment data, as no paid features are available during Beta.</p>
+            <p className="mt-4 text-sm text-muted-foreground">We do not collect payment data, as no paid features are available in the Demo.</p>
           </div>
 
           {/* How We Use Your Data */}
@@ -124,7 +124,7 @@ export default function PrivacyPolicy() {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="inline-block text-primary"><rect x="4" y="4" width="16" height="16" rx="4" fill="currentColor" /></svg>
               5. Data Retention
             </h2>
-            <p className="mb-2 text-base text-foreground">We retain your data only as long as necessary to operate the Beta Services, improve functionality, or comply with legal requirements. When Beta testing ends or your account is deleted, we will anonymize or erase your data within a reasonable timeframe.</p>
+            <p className="mb-2 text-base text-foreground">We retain your data only as long as necessary to operate our Services, improve functionality, or comply with legal requirements. When your account is deleted, we will anonymize or erase your data within a reasonable timeframe.</p>
           </div>
 
           {/* Your Rights (GDPR) */}
@@ -154,7 +154,6 @@ export default function PrivacyPolicy() {
               <li>Authentication and session management.</li>
               <li>Security and CSRF protection.</li>
             </ul>
-            <p className="text-sm text-muted-foreground">We do not use marketing or tracking cookies during the Beta phase.</p>
           </div>
 
           {/* International Data Transfers */}
