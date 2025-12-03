@@ -90,7 +90,7 @@ export default function ContactPage() {
                   </p>
                   
                   <p className="text-muted-foreground leading-relaxed">
-                    Ask for a pilot, give us feedback or let&apos;s talk about sales to see if Thevenin fits your company.
+                    Ask for a demo, give us feedback or let&apos;s talk about Thevenin to see if it fits your company.
                   </p>
                 </div>
               </div>

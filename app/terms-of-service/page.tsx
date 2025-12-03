@@ -26,7 +26,7 @@ export default function TermsOfService() {
           </h1>
           <p className="text-muted-foreground text-lg mb-2">Last updated on 06 Oct 2025</p>
           <p className="text-base md:text-lg text-foreground mb-4">
-            Welcome to Thevenin (the “Platform”, “we”, “us”, or “our”). These Terms & Conditions (“Terms”) govern your access to and use of <a href="https://thevenin.io" className="text-primary underline">https://thevenin.io</a>, including our beta software, applications, and related services (collectively, the “Services”).
+            Welcome to Thevenin (the “Platform”, “we”, “us”, or “our”). These Terms & Conditions (“Terms”) govern your access to and use of <a href="https://thevenin.io" className="text-primary underline">https://thevenin.io</a>, including our demo, software, applications, and related services (collectively, the “Services”).
           </p>
           <p className="text-base md:text-lg text-foreground mb-4">
             By accessing or using our Services, you agree to these Terms. If you do not agree, do not use the Platform.
@@ -35,14 +35,14 @@ export default function TermsOfService() {
 
         {/* Section Card */}
         <section className="space-y-8">
-          {/* Beta Disclaimer */}
+          {/* Demo Disclaimer */}
           <div className="bg-muted/40 border border-border rounded-xl p-6 md:p-8 shadow">
             <h2 className="text-2xl font-bold text-primary mb-2 flex items-center gap-2">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="inline-block text-primary"><rect x="4" y="4" width="16" height="16" rx="4" fill="currentColor" /></svg>
-              1. Beta Disclaimer
+              1. Demo Disclaimer & Licensing
             </h2>
-            <p className="mb-2 text-base text-foreground">Thevenin is currently in Beta testing. Our Services may contain bugs, limited functionality, or errors. The Beta version is made available solely for evaluation and feedback. We may modify, suspend, or discontinue any feature or the entire Platform at any time without notice.</p>
-            <p className="text-sm text-muted-foreground">Your use of the Beta Services is at your own risk, and you acknowledge that performance, availability, and data persistence are not guaranteed.</p>
+            <p className="mb-2 text-base text-foreground">Thevenin provides this online Demo for evaluation purposes only. The Demo is provided "as is" and lacks any guarantees, warranties, or support. The full Thevenin solution is designed to be installed in the client's Cloud environment and is offered under a separate proprietary license agreement.</p>
+            <p className="text-sm text-muted-foreground">Your use of the Demo's Services is at your own risk, and you acknowledge that performance, availability, and data persistence are not guaranteed.</p>
           </div>
 
           {/* Eligibility & Accounts */}
@@ -124,10 +124,10 @@ export default function TermsOfService() {
               7. Availability & Support
             </h2>
             <ul className="list-disc pl-5 text-base space-y-2 mb-2">
-              <li>The Platform may experience downtime, updates, or maintenance, especially during Beta.</li>
+              <li>The Platform's Demo may experience downtime, updates, or maintenance.</li>
               <li>We do not guarantee continuous availability or error-free operation.</li>
               <li>We may collect usage metrics and feedback to improve service reliability.</li>
-              <li>Support is provided on a limited basis during Beta testing.</li>
+              <li>No dedicated support is provided for the Demo version.</li>
             </ul>
           </div>
 
@@ -142,7 +142,7 @@ export default function TermsOfService() {
               <li>Thevenin disclaims all warranties, express or implied, including merchantability, fitness for purpose, and non-infringement.</li>
               <li>Thevenin is not liable for indirect, incidental, or consequential damages, including data loss, downtime, or system errors.</li>
             </ul>
-            <p className="text-sm text-muted-foreground">Because this is a Beta service, you agree to use it at your own risk and discretion.</p>
+            <p className="text-sm text-muted-foreground">Because this is a Demo service, you agree to use it at your own risk and discretion.</p>
           </div>
 
           {/* Termination */}
@@ -155,7 +155,7 @@ export default function TermsOfService() {
             <ul className="list-disc pl-5 text-base space-y-2 mb-2">
               <li>You breach these Terms,</li>
               <li>We detect unauthorized activity, or</li>
-              <li>The Beta program concludes.</li>
+              <li>The Demo access concludes.</li>
             </ul>
             <p className="text-sm text-muted-foreground">Upon termination, we may delete or anonymize your account and related data after a reasonable retention period.</p>
           </div>
