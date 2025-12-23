@@ -2,12 +2,19 @@
 
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { useState, useEffect } from 'react'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X, ChevronDown, Calendar } from 'lucide-react'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [bookingExpanded, setBookingExpanded] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,14 +74,30 @@ export function Navbar() {
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button 
-                variant="secondary"
-                size="sm"
-                className="font-medium"
-                asChild
-              >
-                <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer">Book Meeting</a>
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button 
+                    variant="secondary"
+                    size="sm"
+                    className="font-medium"
+                  >
+                    Book Meeting
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      Product Compliance
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://calendar.app.google/TXVBHXEF53mZ7YZB7" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      DevSecOps
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Button 
                 size="sm" 
                 className="bg-[#CDFF8C] text-black font-medium"
@@ -140,14 +163,42 @@ export function Navbar() {
             </div>
             
             <div className="px-6 pb-6 pt-4 space-y-3 border-t border-border/50">
-              <Button 
-                variant="outline" 
-                className="w-full font-medium border-border/50"
-                onClick={() => setIsOpen(false)}
-                asChild
-              >
-                <a href="/contact">Book Meeting</a>
-              </Button>
+              {/* Book Meeting Expandable Section */}
+              <div className="rounded-lg border border-border/50 overflow-hidden">
+                <button
+                  onClick={() => setBookingExpanded(!bookingExpanded)}
+                  className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    Book Meeting
+                  </span>
+                  <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${bookingExpanded ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`overflow-hidden transition-all duration-200 ${bookingExpanded ? 'max-h-32' : 'max-h-0'}`}>
+                  <div className="px-4 pb-3 space-y-2 bg-muted/30">
+                    <a 
+                      href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full px-3 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-primary/10 rounded-md transition-colors"
+                    >
+                      Product Compliance
+                    </a>
+                    <a 
+                      href="https://calendar.app.google/TXVBHXEF53mZ7YZB7" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className="block w-full px-3 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-primary/10 rounded-md transition-colors"
+                    >
+                      DevSecOps
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
               <Button 
                 className="w-full bg-[#CDFF8C] text-black font-medium"
                 onClick={() => setIsOpen(false)}

@@ -1,6 +1,12 @@
 import { AnimatedHeroTitle } from '@/components/animated-hero-title'
 import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
 export function HeroSection() {
   return (
@@ -47,16 +53,30 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button 
-              size="lg" 
-              variant="secondary"
-              className="border-2 border-border hover:border-primary/50 text-foreground hover:bg-muted/50 text-base font-semibold px-8 py-6 transition-all duration-300 w-full sm:w-auto"
-              asChild
-            >
-              <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer">
-                Book Meeting
-              </a>
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="border-2 border-border hover:border-primary/50 text-foreground hover:bg-muted/50 text-base font-semibold px-8 py-6 transition-all duration-300 w-full sm:w-auto"
+                >
+                  Book Meeting
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="w-48">
+                <DropdownMenuItem asChild>
+                  <a href="https://calendar.app.google/unz6Tsp6C1RmkfWEA" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                    Product Compliance
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="https://calendar.app.google/TXVBHXEF53mZ7YZB7" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                    DevSecOps
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
         </div>
