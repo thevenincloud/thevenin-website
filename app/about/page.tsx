@@ -37,7 +37,8 @@ export default function AboutPage() {
       description: '11 years of experience in Software Development',
       credentials: [
         'Specialized in Frontend Development and User Experiences',
-        'Thorough experience with developing and managing B2B SaaS products under compliance standards'
+        'Thorough experience with developing and managing B2B SaaS products under compliance standards',
+        'Leading technical workflows to achieve and maintain ISO 27001 and SOC2 certifications.'
       ],
       image: '/teams/tomas.png',
       linkedin: 'https://www.linkedin.com/in/tomas-gonzalez-silva',
