@@ -83,13 +83,10 @@ export default function TiersSection() {
                 </div>
 
                 {/* CTA Button */}
-                <Button 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold py-6 rounded-xl group/btn"
-                  asChild
-                >
+                <Button variant="cta" size="xl" className="w-full" asChild>
                   <a href={tier.ctaLink}>
                     {tier.ctaText}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
               </div>
@@ -138,11 +135,7 @@ export default function TiersSection() {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <Button 
-            size="lg" 
-            className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
-            asChild
-          >
+          <Button variant="cta" size="lg" asChild>
             <a href="/contact">
               Contact Us
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

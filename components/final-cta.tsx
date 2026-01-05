@@ -1,6 +1,7 @@
-import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
-import { SectionWrapper } from './section-wrapper'
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { SectionWrapper } from "./section-wrapper";
+import { PremiumIcon } from "@/components/premium-icon";
 
 export function FinalCTA() {
   return (
@@ -16,36 +17,39 @@ export function FinalCTA() {
         <h2 className="mb-8 md:mb-10 heading-display">
           Start building <span className="text-primary">today</span>.
         </h2>
-        
+
         <p className="mb-10 md:mb-12 text-body-large max-w-2xl mx-auto">
-          Join teams already deploying with confidence. Get started in minutes with our demo environment.
+          Join teams already deploying with confidence. Get started in minutes
+          with our demo environment.
         </p>
 
         {/* CTA Buttons with improved mobile layout */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button 
-            size="lg" 
-            className="group bg-primary text-primary-foreground text-base md:text-lg font-semibold px-10 py-6 md:px-12 md:py-7 shadow-primary/30 hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto"
+          <Button
+            variant="cta"
+            size="xl"
+            className="w-full sm:w-auto"
             asChild
           >
             <a href="https://apps.thevenin.io/signup">
               Try Thevenin Demo
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <PremiumIcon
+                icon={ArrowRight}
+                size="sm"
+                className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+              />
             </a>
           </Button>
-          
-          <Button 
-            size="lg" 
-            variant="secondary"
-            className="border-2 border-border hover:border-primary/50 text-foreground hover:bg-muted/50 text-base md:text-lg font-semibold px-10 py-6 md:px-12 md:py-7 transition-all duration-300 w-full sm:w-auto"
-            asChild
+
+          <Button
+            variant="ctaSecondary"
+            size="xl"
+            className="w-full sm:w-auto"
           >
-            <a href="/contact">
-              Contact Sales
-            </a>
+            <a href="/contact">Contact Sales</a>
           </Button>
         </div>
       </div>
     </SectionWrapper>
-  )
+  );
 }

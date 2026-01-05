@@ -23,7 +23,7 @@ export function BenefitsSection() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-primary"
+                    className="mt-1 h-5 w-5 shrink-0 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -42,12 +42,12 @@ export function BenefitsSection() {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent blur-2xl" />
+            <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/20 to-transparent blur-2xl" />
             <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-6">
               <div className="mb-4 flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-red-500" />
-                <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                <div className="h-3 w-3 rounded-full bg-green-500" />
+                <div className="h-3 w-3 rounded-full bg-destructive/60" />
+                <div className="h-3 w-3 rounded-full bg-muted-foreground/40" />
+                <div className="h-3 w-3 rounded-full bg-primary/60" />
               </div>
               <pre className="overflow-x-auto text-sm leading-relaxed">
                 <code className="text-muted-foreground">

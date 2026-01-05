@@ -5,6 +5,7 @@ import { ArrowRight, Check, Cloud, Server, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { PremiumIcon } from '@/components/premium-icon'
 
 export default function PricingPage() {
   const tiers = [
@@ -15,10 +16,11 @@ export default function PricingPage() {
       pricing: 'From €25',
       pricingUnit: 'per vCPU/node',
       pricingDetail: 'used by your apps in each monthly billing cycle.',
-      color: 'text-blue-500',
-      bgGradient: 'from-blue-500/10 to-cyan-500/10',
-      borderColor: 'border-blue-500/20',
-      hoverBorder: 'hover:border-blue-500/50',
+      titleColor: 'text-foreground',
+      bgGradient: 'from-muted/40 to-transparent',
+      borderColor: 'border-border/60',
+      hoverBorder: 'hover:border-primary/30',
+      checkTone: 'muted',
       features: [
         'Deploy Experimental Applications',
         'Security Guarantees',
@@ -34,10 +36,11 @@ export default function PricingPage() {
       pricing: 'From €60',
       pricingUnit: 'per vCPU/node',
       pricingDetail: 'used by your apps in each monthly billing cycle.',
-      color: 'text-primary',
-      bgGradient: 'from-primary/10 to-primary/5',
+      titleColor: 'text-primary',
+      bgGradient: 'from-primary/10 to-transparent',
       borderColor: 'border-primary/30',
-      hoverBorder: 'hover:border-primary',
+      hoverBorder: 'hover:border-primary/60',
+      checkTone: 'primary',
       features: [
         'Guaranteed Uptime SLA',
         'Priority Support',
@@ -53,10 +56,11 @@ export default function PricingPage() {
       pricing: 'Custom',
       pricingUnit: 'Pricing',
       pricingDetail: 'Tailored to your business needs',
-      color: 'text-purple-500',
-      bgGradient: 'from-purple-500/10 to-pink-500/10',
-      borderColor: 'border-purple-500/20',
-      hoverBorder: 'hover:border-purple-500/50',
+      titleColor: 'text-foreground',
+      bgGradient: 'from-muted/40 to-transparent',
+      borderColor: 'border-border/60',
+      hoverBorder: 'hover:border-primary/30',
+      checkTone: 'muted',
       features: [
         'White-label solution',
         'Dedicated Support Team',
@@ -86,7 +90,7 @@ export default function PricingPage() {
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
               >
-                <Zap className="h-4 w-4 text-primary" />
+                <PremiumIcon icon={Zap} size="xs" className="text-primary" />
                 <span className="text-sm font-medium text-primary">Simple, transparent pricing</span>
               </motion.div>
 
@@ -123,7 +127,7 @@ export default function PricingPage() {
                     <div className="relative p-8">
                       {/* Header */}
                       <div className="mb-6">
-                        <h3 className={`text-3xl font-bold mb-2 ${tier.color}`}>
+                        <h3 className={`text-3xl font-bold mb-2 ${tier.titleColor}`}>
                           {tier.name}
                         </h3>
                         <p className="text-sm font-medium text-muted-foreground">
@@ -157,7 +161,12 @@ export default function PricingPage() {
                             transition={{ delay: index * 0.1 + i * 0.05 }}
                             className="flex items-start gap-3"
                           >
-                            <Check className={`h-5 w-5 shrink-0 ${tier.color} mt-0.5`} />
+                            <PremiumIcon
+                              icon={Check}
+                              size="sm"
+                              tone={tier.checkTone}
+                              className="mt-0.5"
+                            />
                             <span className="text-sm">{feature}</span>
                           </motion.li>
                         ))}
@@ -234,13 +243,17 @@ export default function PricingPage() {
                 Need help choosing the right plan?
               </p>
               <Button
+                variant="cta"
                 size="lg"
-                className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
                 asChild
               >
                 <a href="/contact">
                   Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <PremiumIcon
+                    icon={ArrowRight}
+                    size="xs"
+                    className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+                  />
                 </a>
               </Button>
             </motion.div>

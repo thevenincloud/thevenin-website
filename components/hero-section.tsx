@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import { PremiumIcon } from '@/components/premium-icon'
 
 export function HeroSection() {
   return (
@@ -17,7 +18,7 @@ export function HeroSection() {
       </div>
 
       {/* Gradient overlay for depth */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/50 to-background" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-transparent via-background/50 to-background" />
 
       {/* Content */}
       <div className="section-container relative z-10">
@@ -43,25 +44,26 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row pt-4">
-            <Button 
-              size="lg" 
-              className="group bg-primary text-primary-foreground text-base font-semibold px-8 py-6 shadow-lg shadow-primary/25 transition-all duration-300 w-full sm:w-auto"
+            <Button
+              variant="cta"
+              size="xl"
+              className="w-full sm:w-auto"
               asChild
             >
               <a href="https://apps.thevenin.io/login">
                 Try Thevenin Demo
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <PremiumIcon
+                  icon={ArrowRight}
+                  size="sm"
+                  className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+                />
               </a>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  size="lg" 
-                  variant="secondary"
-                  className="border-2 border-border hover:border-primary/50 text-foreground hover:bg-muted/50 text-base font-semibold px-8 py-6 transition-all duration-300 w-full sm:w-auto"
-                >
+                <Button variant="ctaSecondary" size="xl" className="w-full sm:w-auto">
                   Book Meeting
-                  <ChevronDown className="ml-2 h-4 w-4" />
+                  <PremiumIcon icon={ChevronDown} size="xs" className="ml-2 text-inherit" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="w-48">

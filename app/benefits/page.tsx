@@ -1,6 +1,7 @@
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Button } from '@/components/ui/button'
+import { PremiumIcon, PremiumIconBadge } from '@/components/premium-icon'
 import {
   ArrowRight,
   Boxes,
@@ -39,9 +40,7 @@ export default function BenefitsPage() {
       title: 'Effortless Infrastructure',
       description: 'Deploy, scale, and manage applications without any DevOps or Cloud knowledge.',
       details: 'Thevenin automates the hardest parts of setup and maintenance so development teams can focus on what they do best: building great software.',
-      gradient: 'from-yellow-500/20 via-orange-500/10 to-transparent',
-      iconColor: 'text-yellow-500',
-      iconBg: 'bg-yellow-500/10',
+      gradient: 'from-primary/10 via-transparent to-transparent',
       features: [
         'Zero DevOps knowledge required',
         'Automated setup and maintenance',
@@ -54,9 +53,7 @@ export default function BenefitsPage() {
       title: 'Secure by Default',
       description: 'Designed with strong isolation and compliance in mind.',
       details: 'MFA is mandatory for all users. Environments are network isolated with eBPF. Containers are sandboxed in gVisor. Volumes are encrypted with KMS, Public Endpoints with TLS and Private Endpoints with mTLS. All Files, Variables and Configs are handled as Secrets',
-      gradient: 'from-primary/20 via-green-500/10 to-transparent',
-      iconColor: 'text-primary',
-      iconBg: 'bg-primary/10',
+      gradient: 'from-primary/10 via-transparent to-transparent',
       features: [
         'Mandatory MFA authentication',
         'Network isolation with eBPF',
@@ -71,9 +68,7 @@ export default function BenefitsPage() {
       title: 'Portable and Vendor Neutral',
       description: 'Thevenin is designed to run anywhere.',
       details: 'Avoid vendor-lock-in by using Thevenin in your own Cloud Infrastructure. Keep control of your data and applications.',
-      gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent',
-      iconColor: 'text-blue-500',
-      iconBg: 'bg-blue-500/10',
+      gradient: 'from-primary/10 via-transparent to-transparent',
       features: [
         'Use in your internal network or VPN',
         'No vendor lock-in',
@@ -86,9 +81,7 @@ export default function BenefitsPage() {
       title: 'Built for Modern Architectures',
       description: 'Built from the ground up for multi-tiered systems.',
       details: 'Offering flexibility, modular deployment, and consistent performance at any scale.',
-      gradient: 'from-purple-500/20 via-pink-500/10 to-transparent',
-      iconColor: 'text-purple-500',
-      iconBg: 'bg-purple-500/10',
+      gradient: 'from-primary/10 via-transparent to-transparent',
       features: [
         'Multi-tiered architecture support',
         'Low latency between services',
@@ -101,9 +94,7 @@ export default function BenefitsPage() {
       title: 'Efficient Resource Usage',
       description: 'Designed to adjust to each microservice\'s resource requirements.',
       details: 'No matter how small they are, making it into an extremely efficient platform for architectures with many services.',
-      gradient: 'from-green-500/20 via-emerald-500/10 to-transparent',
-      iconColor: 'text-green-500',
-      iconBg: 'bg-green-500/10',
+      gradient: 'from-primary/10 via-transparent to-transparent',
       features: [
         'Lower Cloud Costs',
         'Dynamic resource allocation',
@@ -116,9 +107,7 @@ export default function BenefitsPage() {
       title: 'Predictable, Fair Billing',
       description: 'Pay only for the vCPU your apps use. Set monthly limits to what you will pay for Thevenin and your Cloud.',
       details: 'Thevenin\'s transparent billing and resource quotas help control costs and prevent overuse in development environments.',
-      gradient: 'from-indigo-500/20 via-blue-500/10 to-transparent',
-      iconColor: 'text-indigo-500',
-      iconBg: 'bg-indigo-500/10',
+      gradient: 'from-primary/10 via-transparent to-transparent',
       features: [
         'Keep on budget with monthly limits',
         'Simple Usage-based pricing',
@@ -151,7 +140,7 @@ export default function BenefitsPage() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              <Zap className="h-4 w-4" />
+              <PremiumIcon icon={Zap} size="xs" className="text-inherit" />
               Key Advantages
             </div>
             
@@ -165,22 +154,17 @@ export default function BenefitsPage() {
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button 
-                size="lg" 
-                className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
-                asChild
-              >
+              <Button variant="cta" size="lg" asChild>
                 <a href="https://apps.thevenin.io/login">
                   Start Building
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <PremiumIcon
+                    icon={ArrowRight}
+                    size="xs"
+                    className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+                  />
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="text-base font-medium px-8"
-                asChild
-              >
+              <Button variant="ctaSecondary" size="lg" asChild>
                 <a href="/contact">
                   Contact Sales
                 </a>
@@ -203,8 +187,12 @@ export default function BenefitsPage() {
                   <div className={`absolute inset-0 bg-linear-to-br ${benefit.gradient} opacity-30`} />
                   
                   <div className="relative">
-                    <div className={`mb-6 inline-flex rounded-lg ${benefit.iconBg} p-3`}>
-                      <benefit.icon className={`h-8 w-8 ${benefit.iconColor}`} />
+                    <div className="mb-6">
+                      <PremiumIconBadge
+                        icon={benefit.icon}
+                        className="group-hover:border-primary/30 group-hover:bg-primary/10"
+                        iconClassName="group-hover:text-primary"
+                      />
                     </div>
                     
                     <h2 className="mb-4 font-krona text-2xl tracking-tight md:text-3xl">
@@ -223,7 +211,7 @@ export default function BenefitsPage() {
                     <ul className="grid gap-3 sm:grid-cols-2">
                       {benefit.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          <Check className={`h-5 w-5 shrink-0 ${benefit.iconColor} mt-0.5`} />
+                          <PremiumIcon icon={Check} size="sm" tone="primary" className="mt-0.5" />
                           <span className="text-sm text-foreground/90">{feature}</span>
                         </li>
                       ))}
@@ -257,14 +245,14 @@ export default function BenefitsPage() {
                   className="group relative rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <feature.icon className="h-8 w-8 text-primary mb-3" />
+                  <PremiumIcon icon={feature.icon} size="lg" tone="primary" className="mb-3" />
                   <h3 className="font-semibold text-foreground">{feature.text}</h3>
                 </div>
               ))}
             </div>
 
             <div className="mt-12 rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center">
-              <Shield className="mx-auto h-12 w-12 text-primary mb-4" />
+              <PremiumIcon icon={Shield} size={48} tone="primary" className="mx-auto mb-4" />
               <h3 className="mb-2 text-xl font-bold">Zero Trust Security</h3>
               <p className="text-muted-foreground">
                 Thevenin ensures that every access request is thoroughly verified and encrypted, regardless of its origin, minimizing potential attack surface.
@@ -284,22 +272,17 @@ export default function BenefitsPage() {
             </h2>
             
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button 
-                size="lg" 
-                className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
-                asChild
-              >
+              <Button variant="cta" size="lg" asChild>
                 <a href="https://apps.thevenin.io/login">
                   Try Thevenin Demo
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <PremiumIcon
+                    icon={ArrowRight}
+                    size="xs"
+                    className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+                  />
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="text-base font-medium px-8"
-                asChild
-              >
+              <Button variant="ctaSecondary" size="lg" asChild>
                 <a href="https://docs.thevenin.io" target="_blank" rel="noopener noreferrer">
                   Read Documentation
                 </a>

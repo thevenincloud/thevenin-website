@@ -13,6 +13,7 @@ import {
   Code,
   Building2
 } from 'lucide-react'
+import { PremiumIcon, PremiumIconBadge } from '@/components/premium-icon'
 
 export const metadata: Metadata = {
   title: 'FAQ - Frequently Asked Questions',
@@ -32,8 +33,6 @@ export default function FAQPage() {
     {
       category: 'About Thevenin',
       icon: Sparkles,
-      color: 'text-primary',
-      bgColor: 'bg-primary/10',
       questions: [
         {
           question: 'What is Thevenin?',
@@ -54,8 +53,6 @@ export default function FAQPage() {
     {
       category: 'Use Cases & Tiers',
       icon: Building2,
-      color: 'text-blue-500',
-      bgColor: 'bg-blue-500/10',
       questions: [
         {
           question: 'What are the use cases for Thevenin and its tiers?',
@@ -63,7 +60,7 @@ export default function FAQPage() {
             <div className="space-y-4">
               <p>Thevenin consists of three tiers related to the stage in the lifecycle of any software project and company:</p>
               
-              <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-4">
+              <div className="rounded-lg border border-border/60 bg-muted/30 p-4">
                 <h4 className="font-semibold text-foreground mb-2">Thevenin Dev Tier</h4>
                 <p>An Internal Development Platform to be used for developing MVPs or iterating existing products. It is ideal for companies ranging from pre-revenue Startups to Enterprises.</p>
               </div>
@@ -73,7 +70,7 @@ export default function FAQPage() {
                 <p>A Fault tolerant Platform with guaranteed Service Levels Agreements, for hosting software that is used by many users. It is ideal for companies ranging from Post-Revenue Startups to Enterprise.</p>
               </div>
 
-              <div className="rounded-lg border border-purple-500/30 bg-purple-500/5 p-4">
+              <div className="rounded-lg border border-border/60 bg-muted/30 p-4">
                 <h4 className="font-semibold text-foreground mb-2">Thevenin Enterprise Tier</h4>
                 <p>A White Labeled Dashboard with Customized Services to integrate with existing deployments. It is ideal for big Enterprises wanting to develop new projects that integrate with their existing services.</p>
               </div>
@@ -85,8 +82,6 @@ export default function FAQPage() {
     {
       category: 'Features & Capabilities',
       icon: Settings,
-      color: 'text-green-500',
-      bgColor: 'bg-green-500/10',
       questions: [
         {
           question: 'What can I currently do with Thevenin?',
@@ -112,8 +107,6 @@ export default function FAQPage() {
     {
       category: 'Technology',
       icon: Code,
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-500/10',
       questions: [
         {
           question: 'What technologies make Thevenin possible?',
@@ -131,8 +124,6 @@ export default function FAQPage() {
     {
       category: 'Deployment Options',
       icon: Cloud,
-      color: 'text-cyan-500',
-      bgColor: 'bg-cyan-500/10',
       questions: [
         {
           question: 'Can I host Thevenin in my own cloud?',
@@ -149,8 +140,6 @@ export default function FAQPage() {
     {
       category: 'Legal & Company',
       icon: Shield,
-      color: 'text-orange-500',
-      bgColor: 'bg-orange-500/10',
       questions: [
         {
           question: 'Where is Thevenin legally registered?',
@@ -179,7 +168,7 @@ export default function FAQPage() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              <HelpCircle className="h-4 w-4" />
+              <PremiumIcon icon={HelpCircle} size="xs" className="text-inherit" />
               Frequently Asked Questions
             </div>
             
@@ -203,9 +192,12 @@ export default function FAQPage() {
               <div key={category.category} className="space-y-6">
                 {/* Category Header */}
                 <div className="flex items-center gap-3 pb-4 border-b border-border/50">
-                  <div className={`inline-flex rounded-lg ${category.bgColor} p-2`}>
-                    <category.icon className={`h-5 w-5 ${category.color}`} />
-                  </div>
+                  <PremiumIconBadge
+                    icon={category.icon}
+                    size="sm"
+                    className="border-border/60 bg-muted/40"
+                    iconClassName="text-foreground/80"
+                  />
                   <h2 className="text-2xl font-bold">{category.category}</h2>
                 </div>
 
@@ -218,7 +210,12 @@ export default function FAQPage() {
                     >
                       <summary className="flex cursor-pointer items-center justify-between p-6 text-left font-semibold text-foreground list-none">
                         <span className="flex-1 pr-4">{faq.question}</span>
-                        <ChevronDown className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+                        <PremiumIcon
+                          icon={ChevronDown}
+                          size="sm"
+                          tone="muted"
+                          className="transition-transform group-open:rotate-180"
+                        />
                       </summary>
                       <div className="border-t border-border/30 px-6 pb-6 pt-4">
                         <div className="text-muted-foreground leading-relaxed">
@@ -242,7 +239,8 @@ export default function FAQPage() {
       <section className="py-24 md:py-32 bg-card/30">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl text-center">
-            <HelpCircle className="mx-auto h-16 w-16 text-primary mb-6" />
+            <PremiumIcon icon={HelpCircle} size={64} tone="primary" className="mx-auto mb-6" />
+            
             <h2 className="mb-6 font-krona text-3xl tracking-tight text-balance md:text-5xl">
               Still Have{' '}
               <span className="text-primary">Questions?</span>
@@ -252,22 +250,17 @@ export default function FAQPage() {
             </p>
             
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button 
-                size="lg" 
-                className="group bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
-                asChild
-              >
+              <Button variant="cta" size="lg" asChild>
                 <a href="/contact">
                   Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <PremiumIcon
+                    icon={ArrowRight}
+                    size="xs"
+                    className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+                  />
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="text-base font-medium px-8"
-                asChild
-              >
+              <Button variant="ctaSecondary" size="lg" asChild>
                 <a href="https://docs.thevenin.io" target="_blank" rel="noopener noreferrer">
                   Read Documentation
                 </a>

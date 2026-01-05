@@ -1,4 +1,5 @@
 import { Rocket, Shield, RefreshCw } from 'lucide-react'
+import { PremiumIconBadge } from '@/components/premium-icon'
 
 export function FeaturesSection() {
   const features = [
@@ -35,8 +36,12 @@ export function FeaturesSection() {
               key={feature.title}
               className="group rounded-xl border border-border/50 bg-card p-8 transition-all hover:border-primary/50 hover:bg-card/80"
             >
-              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
-                <feature.icon className="h-6 w-6 text-primary" />
+              <div className="mb-4">
+                <PremiumIconBadge
+                  icon={feature.icon}
+                  className="group-hover:border-primary/30 group-hover:bg-primary/10"
+                  iconClassName="group-hover:text-primary"
+                />
               </div>
               <h3 className="mb-3 text-xl font-semibold">{feature.title}</h3>
               <p className="leading-relaxed text-muted-foreground">

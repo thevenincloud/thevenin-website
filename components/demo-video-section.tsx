@@ -5,6 +5,8 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { SectionWrapper } from './section-wrapper'
 import { SectionHeader } from './section-header'
+import { PremiumIcon } from '@/components/premium-icon'
+import { Button } from '@/components/ui/button'
 
 export function DemoVideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -93,13 +95,16 @@ export function DemoVideoSection() {
                   loading="lazy"
                 />
                 {/* Play Button */}
-                <button
+                <Button
+                  type="button"
                   onClick={togglePlay}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary bg-background/80 transition-all hover:scale-110 hover:bg-background hover:shadow-lg hover:shadow-primary/25"
+                  variant="outline"
+                  size="icon"
+                  className="h-20 w-20 rounded-full border-2 border-primary bg-background/80 hover:scale-110 hover:bg-background hover:shadow-lg hover:shadow-primary/25"
                   aria-label="Play demo video"
                 >
-                  <Play className="ml-1 h-8 w-8 fill-primary text-primary" />
-                </button>
+                  <PremiumIcon icon={Play} size={32} className="ml-1 fill-primary text-primary" />
+                </Button>
               </div>
             )}
 
@@ -111,42 +116,51 @@ export function DemoVideoSection() {
             >
               <div className="flex items-center justify-between gap-4">
                 {/* Play/Pause Button */}
-                <button
+                <Button
+                  type="button"
                   onClick={togglePlay}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-110"
+                  variant="ghost"
+                  size="icon-lg"
+                  className="rounded-full bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary hover:scale-110"
                   aria-label={isPlaying ? 'Pause' : 'Play'}
                 >
                   {isPlaying ? (
-                    <Pause className="h-5 w-5 fill-primary" />
+                    <PremiumIcon icon={Pause} size="sm" className="fill-primary text-primary" />
                   ) : (
-                    <Play className="ml-0.5 h-5 w-5 fill-primary" />
+                    <PremiumIcon icon={Play} size="sm" className="ml-0.5 fill-primary text-primary" />
                   )}
-                </button>
+                </Button>
 
                 {/* Spacer */}
                 <div className="flex-1" />
 
                 {/* Volume Button */}
-                <button
+                <Button
+                  type="button"
                   onClick={toggleMute}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-110"
+                  variant="ghost"
+                  size="icon-lg"
+                  className="rounded-full bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary hover:scale-110"
                   aria-label={isMuted ? 'Unmute' : 'Mute'}
                 >
                   {isMuted ? (
-                    <VolumeX className="h-5 w-5" />
+                    <PremiumIcon icon={VolumeX} size="sm" className="text-primary" />
                   ) : (
-                    <Volume2 className="h-5 w-5" />
+                    <PremiumIcon icon={Volume2} size="sm" className="text-primary" />
                   )}
-                </button>
+                </Button>
 
                 {/* Fullscreen Button */}
-                <button
+                <Button
+                  type="button"
                   onClick={toggleFullscreen}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20 hover:scale-110"
+                  variant="ghost"
+                  size="icon-lg"
+                  className="rounded-full bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary hover:scale-110"
                   aria-label="Fullscreen"
                 >
-                  <Maximize className="h-5 w-5" />
-                </button>
+                  <PremiumIcon icon={Maximize} size="sm" className="text-primary" />
+                </Button>
               </div>
             </div>
           </div>

@@ -570,3 +570,13 @@
     linear-gradient(to bottom, #80808008 1px, transparent 1px);
   background-size: 32px 32px;
 }
+
+@layer utilities {
+  .link-primary {
+    @apply font-semibold text-primary underline-offset-4 transition-colors hover:underline;
+  }
+
+  .link-primary-underline {
+    @apply text-primary underline underline-offset-4;
+  }
+}

@@ -1,6 +1,5 @@
 'use client'
 
-import { Cloud, Lock, Zap } from 'lucide-react'
 import { useState } from 'react'
 import { SectionWrapper } from './section-wrapper'
 import { SectionHeader } from './section-header'
@@ -12,23 +11,20 @@ export function VendorNeutralSection() {
     {
       title: 'Compliant Access',
       description: 'Use it in your cloud, within your internal network or VPN',
-      gradient: 'from-blue-500/20 to-transparent',
-      iconColor: 'text-blue-500',
-      iconBg: 'bg-blue-500/10',
+      gradient: 'from-primary/10 to-transparent',
+      iconBg: 'bg-primary/10',
     },
     {
       title: 'Data Sovereignty',
       description: 'Keep data in your region',
-      gradient: 'from-primary/20 to-transparent',
-      iconColor: 'text-primary',
+      gradient: 'from-primary/10 to-transparent',
       iconBg: 'bg-primary/10',
     },
     {
       title: 'Easy Migration',
       description: 'Move anytime, no penalties',
-      gradient: 'from-purple-500/20 to-transparent',
-      iconColor: 'text-purple-500',
-      iconBg: 'bg-purple-500/10',
+      gradient: 'from-primary/10 to-transparent',
+      iconBg: 'bg-primary/10',
     }
   ]
 

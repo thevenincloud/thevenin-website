@@ -26,7 +26,7 @@ export default function TermsOfService() {
           </h1>
           <p className="text-muted-foreground text-lg mb-2">Last updated on 06 Oct 2025</p>
           <p className="text-base md:text-lg text-foreground mb-4">
-            Welcome to Thevenin (the “Platform”, “we”, “us”, or “our”). These Terms & Conditions (“Terms”) govern your access to and use of <a href="https://thevenin.io" className="text-primary underline">https://thevenin.io</a>, including our demo, software, applications, and related services (collectively, the “Services”).
+            Welcome to Thevenin (the “Platform”, “we”, “us”, or “our”). These Terms & Conditions (“Terms”) govern your access to and use of <a href="https://thevenin.io" className="link-primary-underline">https://thevenin.io</a>, including our demo, software, applications, and related services (collectively, the “Services”).
           </p>
           <p className="text-base md:text-lg text-foreground mb-4">
             By accessing or using our Services, you agree to these Terms. If you do not agree, do not use the Platform.
@@ -113,7 +113,7 @@ export default function TermsOfService() {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="inline-block text-primary"><rect x="4" y="4" width="16" height="16" rx="4" fill="currentColor" /></svg>
               6. Privacy & Data
             </h2>
-            <p className="mb-2 text-base text-foreground">Your use of the Services is subject to our <a href="/privacy-policy" className="text-primary underline">Privacy Policy</a>, which explains how we collect, store, and use your data. We implement encryption, 2FA, and access control to protect user information.</p>
+            <p className="mb-2 text-base text-foreground">Your use of the Services is subject to our <a href="/privacy-policy" className="link-primary-underline">Privacy Policy</a>, which explains how we collect, store, and use your data. We implement encryption, 2FA, and access control to protect user information.</p>
             <p className="text-sm text-muted-foreground">While we strive for high security standards, you acknowledge that no online system is completely immune from risk.</p>
           </div>
 
@@ -187,7 +187,7 @@ export default function TermsOfService() {
             <p className="mb-2 text-base text-foreground">Thevenin OÜ</p>
             <p className="mb-2 text-base text-foreground">Tallinn, Estonia</p>
             <p className="mb-2 text-base text-foreground">
-              <a href="mailto:support@thevenin.io" className="text-primary underline">support@thevenin.io</a>
+              <a href="mailto:support@thevenin.io" className="link-primary-underline">support@thevenin.io</a>
             </p>
           </div>
         </section>

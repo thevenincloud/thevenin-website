@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { LucideIcon } from 'lucide-react'
+import { PremiumIcon } from '@/components/premium-icon'
 
 interface SectionHeaderProps {
   badge?: string
@@ -33,7 +34,7 @@ export function SectionHeader({
     )}>
       {badge && (
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 w-fit">
-          {BadgeIcon && <BadgeIcon className="h-4 w-4" />}
+          {BadgeIcon && <PremiumIcon icon={BadgeIcon} size="xs" className="text-inherit" />}
           {badge}
         </span>
       )}

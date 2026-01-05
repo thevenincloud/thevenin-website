@@ -1,6 +1,7 @@
 import { FeaturesOverviewSection } from '@/components/features-overview-section'
 import { HeroSection } from '@/components/hero-section'
 import { Navbar } from '@/components/navbar'
+import { ServicesTeaserSection } from '@/components/services-teaser-section'
 import { OrganizationSchema, SoftwareApplicationSchema, WebsiteSchema } from '@/components/structured-data'
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
@@ -44,6 +45,7 @@ export default function Home() {
         <DemoVideoSection />
         <VendorNeutralSection />
         <StateOfArtSection />
+        <ServicesTeaserSection />
         <FinalCTA />
         <Footer />
       </main>

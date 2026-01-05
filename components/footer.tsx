@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import SocialIcons from './social-icons'
 
 export function Footer() {
   return (
@@ -19,6 +20,12 @@ export function Footer() {
               Build like a Startup<br />
               Ship like an Enterprise
             </p>
+            {/* Social Media Section */}
+            <div className="mt-6">
+              <h2 className="mb-2 font-semibold text-base">Follow us</h2>
+              {/* SocialIcons component renders icons and links */}
+              <SocialIcons />
+            </div>
           </div>
 
           <div>

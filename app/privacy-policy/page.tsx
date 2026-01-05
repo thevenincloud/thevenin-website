@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           </h1>
           <p className="text-muted-foreground text-lg mb-2">Last updated on 06 Oct 2025</p>
           <p className="text-base md:text-lg text-foreground mb-4">
-            This Privacy Policy describes how Thevenin OÜ (“Thevenin”, “we”, “our”, “us”) collects, processes, and protects your personal data when you use our website and services at <a href="https://thevenin.io" className="text-primary underline">https://thevenin.io</a> (the “Platform”).
+            This Privacy Policy describes how Thevenin OÜ (“Thevenin”, “we”, “our”, “us”) collects, processes, and protects your personal data when you use our website and services at <a href="https://thevenin.io" className="link-primary-underline">https://thevenin.io</a> (the “Platform”).
           </p>
           <p className="text-base md:text-lg text-foreground mb-4">
             We are committed to protecting your privacy and complying with the EU General Data Protection Regulation (GDPR) and Estonian data protection laws.
@@ -141,7 +141,7 @@ export default function PrivacyPolicy() {
               <li>Data portability (export your data).</li>
               <li>Lodge a complaint with the Estonian Data Protection Inspectorate.</li>
             </ul>
-            <p className="text-sm text-muted-foreground">You can exercise your rights by contacting: <a href="mailto:support@thevenin.io" className="text-primary underline">support@thevenin.io</a></p>
+            <p className="text-sm text-muted-foreground">You can exercise your rights by contacting: <a href="mailto:support@thevenin.io" className="link-primary-underline">support@thevenin.io</a></p>
           </div>
 
           {/* Cookies */}
@@ -183,7 +183,7 @@ export default function PrivacyPolicy() {
             <p className="mb-2 text-base text-foreground">Thevenin OÜ</p>
             <p className="mb-2 text-base text-foreground">Tallinn, Estonia</p>
             <p className="mb-2 text-base text-foreground">
-              <a href="mailto:support@thevenin.io" className="text-primary underline">support@thevenin.io</a>
+              <a href="mailto:support@thevenin.io" className="link-primary-underline">support@thevenin.io</a>
             </p>
           </div>
         </section>

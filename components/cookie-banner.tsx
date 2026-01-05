@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
+import { PremiumIcon } from '@/components/premium-icon'
+import { Switch } from '@/components/ui/switch'
 
 declare global {
   interface Window {
@@ -117,13 +119,16 @@ export function CookieBanner() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 pb-4 px-4 sm:px-6 lg:px-8">
       <div className="relative bg-card border border-border rounded-lg shadow-lg p-6 max-w-5xl mx-auto">
-        <button
+        <Button
+          type="button"
           onClick={acceptNecessary}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+          variant="ghost"
+          size="icon"
+          className="absolute top-3 right-3 rounded-full text-muted-foreground hover:text-foreground"
           aria-label="Close"
         >
-          <X className="h-4 w-4" />
-        </button>
+          <PremiumIcon icon={X} size="sm" tone="muted" />
+        </Button>
 
         {!showSettings ? (
           <div className="flex flex-col gap-4">
@@ -177,9 +182,7 @@ export function CookieBanner() {
                   </p>
                 </div>
                 <div className="ml-4">
-                  <div className="w-11 h-6 bg-primary rounded-full flex items-center px-1">
-                    <div className="w-4 h-4 bg-white rounded-full ml-auto"></div>
-                  </div>
+                  <Switch checked disabled aria-label="Necessary cookies" />
                 </div>
               </div>
 
@@ -191,18 +194,13 @@ export function CookieBanner() {
                   </p>
                 </div>
                 <div className="ml-4">
-                  <button
-                    onClick={() => setPreferences(prev => ({ ...prev, analytics: !prev.analytics }))}
-                    className={`w-11 h-6 rounded-full flex items-center px-1 transition-colors ${
-                      preferences.analytics ? 'bg-primary' : 'bg-muted-foreground/30'
-                    }`}
-                  >
-                    <div
-                      className={`w-4 h-4 bg-white rounded-full transition-transform ${
-                        preferences.analytics ? 'translate-x-5' : ''
-                      }`}
-                    ></div>
-                  </button>
+                  <Switch
+                    checked={preferences.analytics}
+                    onCheckedChange={(checked) =>
+                      setPreferences((prev) => ({ ...prev, analytics: checked }))
+                    }
+                    aria-label="Analytics cookies"
+                  />
                 </div>
               </div>
 
@@ -214,18 +212,13 @@ export function CookieBanner() {
                   </p>
                 </div>
                 <div className="ml-4">
-                  <button
-                    onClick={() => setPreferences(prev => ({ ...prev, marketing: !prev.marketing }))}
-                    className={`w-11 h-6 rounded-full flex items-center px-1 transition-colors ${
-                      preferences.marketing ? 'bg-primary' : 'bg-muted-foreground/30'
-                    }`}
-                  >
-                    <div
-                      className={`w-4 h-4 bg-white rounded-full transition-transform ${
-                        preferences.marketing ? 'translate-x-5' : ''
-                      }`}
-                    ></div>
-                  </button>
+                  <Switch
+                    checked={preferences.marketing}
+                    onCheckedChange={(checked) =>
+                      setPreferences((prev) => ({ ...prev, marketing: checked }))
+                    }
+                    aria-label="Marketing cookies"
+                  />
                 </div>
               </div>
             </div>
@@ -251,11 +244,11 @@ export function CookieBanner() {
         <div className="mt-4 pt-4 border-t border-border">
           <p className="text-xs text-muted-foreground">
             For more information, please read our{' '}
-            <a href="/privacy-policy" className="underline hover:text-foreground">
+            <a href="/privacy-policy" className="link-primary-underline">
               Privacy Policy
             </a>{' '}
             and{' '}
-            <a href="/terms-of-service" className="underline hover:text-foreground">
+            <a href="/terms-of-service" className="link-primary-underline">
               Terms of Service
             </a>
             .

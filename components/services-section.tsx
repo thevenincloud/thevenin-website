@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { Rocket, Settings, Shield, Activity, Globe, Gauge, Users, FileCheck, CreditCard, ArrowRight } from 'lucide-react'
+import { Rocket, Settings, Shield, ArrowRight, Check } from 'lucide-react'
+import { PremiumIconBadge, PremiumIcon } from '@/components/premium-icon'
 
 export default function ServicesSection() {
   const services = [
@@ -13,7 +14,7 @@ export default function ServicesSection() {
         'Public Endpoints/Custom Domains',
         'Resource Allocation for each App',
       ],
-      gradient: 'from-primary/20 to-transparent',
+      gradient: 'from-primary/10 to-transparent',
     },
     {
       icon: Settings,
@@ -25,7 +26,7 @@ export default function ServicesSection() {
         'Governance and Audibility',
         'Predictable Billing',
       ],
-      gradient: 'from-blue-500/20 to-transparent',
+      gradient: 'from-primary/10 to-transparent',
     },
     {
       icon: Shield,
@@ -37,7 +38,7 @@ export default function ServicesSection() {
         'Data encryption at Rest and Transit',
         'Access Policies',
       ],
-      gradient: 'from-purple-500/20 to-transparent',
+      gradient: 'from-primary/10 to-transparent',
     },
   ]
 
@@ -63,7 +64,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative rounded-xl border border-border/50 bg-card p-8 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
+              className="group relative rounded-xl border border-border/60 bg-card p-8 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Gradient background */}
@@ -71,8 +72,12 @@ export default function ServicesSection() {
               
               {/* Content */}
               <div className="relative z-10">
-                <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3 transition-colors group-hover:bg-primary/20">
-                  <service.icon className="h-6 w-6 text-primary" />
+                <div className="mb-4">
+                  <PremiumIconBadge
+                    icon={service.icon}
+                    className="group-hover:border-primary/30 group-hover:bg-primary/10"
+                    iconClassName="group-hover:text-primary"
+                  />
                 </div>
                 
                 <h3 className="mb-3 text-xl font-semibold">{service.title}</h3>
@@ -89,19 +94,7 @@ export default function ServicesSection() {
                 <ul className="mb-6 space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      <PremiumIcon icon={Check} size="xs" tone="primary" className="mt-0.5" />
                       <span className="text-foreground/80">{feature}</span>
                     </li>
                   ))}
@@ -114,7 +107,11 @@ export default function ServicesSection() {
                 >
                   <a href="https://apps.thevenin.io/login">
                     Try our Demo
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <PremiumIcon
+                      icon={ArrowRight}
+                      size="xs"
+                      className="ml-2 transition-transform group-hover:translate-x-1 text-inherit"
+                    />
                   </a>
                 </Button>
               </div>

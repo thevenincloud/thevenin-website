@@ -111,7 +111,7 @@ export default function EULA() {
             </h2>
             <p className="mb-2 text-base text-foreground">Your use of the Software is also governed by our Privacy Policy. You agree that:</p>
             <ul className="list-disc pl-5 text-base space-y-2 mb-2">
-              <li>Thevenin may collect and process your data as described in our <a href="/privacy-policy" className="text-primary underline">Privacy Policy</a>.</li>
+              <li>Thevenin may collect and process your data as described in our <a href="/privacy-policy" className="link-primary-underline">Privacy Policy</a>.</li>
               <li>You are responsible for maintaining the security of your account credentials.</li>
               <li>You will only upload or process data that you have the right to use.</li>
               <li>You will comply with all applicable data protection and privacy laws (including GDPR).</li>
@@ -248,7 +248,7 @@ export default function EULA() {
             <p className="mb-2 text-base text-foreground">Thevenin OÜ</p>
             <p className="mb-2 text-base text-foreground">Tallinn, Estonia</p>
             <p className="mb-2 text-base text-foreground">
-              <a href="mailto:support@thevenin.io" className="text-primary underline">support@thevenin.io</a>
+              <a href="mailto:support@thevenin.io" className="link-primary-underline">support@thevenin.io</a>
             </p>
           </div>
         </section>

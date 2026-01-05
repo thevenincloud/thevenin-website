@@ -5,6 +5,7 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Skeleton } from '@/components/ui/skeleton'
 import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
@@ -97,6 +98,31 @@ export default function ContactPage() {
 
               {/* Right side - Contact Form */}
               <div className="bg-linear-to-br from-card/50 to-card/30 backdrop-blur-sm border border-border/60 rounded-3xl p-10 shadow-2xl">
+                {!mounted ? (
+                  <div className="space-y-6" aria-hidden>
+                    <div className="space-y-3">
+                      <Skeleton className="h-4 w-32 bg-muted/50" />
+                      <Skeleton className="h-12 w-full rounded-xl bg-muted/40 border border-border/40" />
+                    </div>
+                    <div className="space-y-3">
+                      <Skeleton className="h-4 w-20 bg-muted/50" />
+                      <Skeleton className="h-12 w-full rounded-xl bg-muted/40 border border-border/40" />
+                    </div>
+                    <div className="space-y-3">
+                      <Skeleton className="h-4 w-28 bg-muted/50" />
+                      <Skeleton className="h-12 w-full rounded-xl bg-muted/40 border border-border/40" />
+                    </div>
+                    <div className="space-y-3">
+                      <Skeleton className="h-4 w-24 bg-muted/50" />
+                      <Skeleton className="h-12 w-full rounded-xl bg-muted/40 border border-border/40" />
+                    </div>
+                    <div className="space-y-3">
+                      <Skeleton className="h-4 w-24 bg-muted/50" />
+                      <Skeleton className="h-32 w-full rounded-xl bg-muted/40 border border-border/40" />
+                    </div>
+                    <Skeleton className="h-12 w-full rounded-xl bg-muted/40 border border-border/40" />
+                  </div>
+                ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-3">
                     <label htmlFor="companyName" className="text-base font-medium text-foreground block">
@@ -131,26 +157,20 @@ export default function ContactPage() {
                     <label htmlFor="companySize" className="text-base font-medium text-foreground block">
                       Company Size
                     </label>
-                    {mounted ? (
-                      <Select
-                        value={formData.companySize}
-                        onValueChange={(value) => setFormData({ ...formData, companySize: value })}
-                        required
-                      >
-                        <SelectTrigger className="w-full h-12 bg-background/60 border-border/40 rounded-xl text-base focus:ring-primary/20 focus:border-primary/40 transition-all">
-                          <SelectValue placeholder="Select..." />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background/95 backdrop-blur-lg border-border/60">
-                          <SelectItem value="startup" className="text-base">Startup</SelectItem>
-                          <SelectItem value="scaleup" className="text-base">Scale Up</SelectItem>
-                          <SelectItem value="enterprise" className="text-base">Enterprise</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    ) : (
-                      <div className="w-full h-12 bg-background/60 border border-border/40 rounded-xl flex items-center px-3 text-base text-muted-foreground/40">
-                        Select...
-                      </div>
-                    )}
+                    <Select
+                      value={formData.companySize}
+                      onValueChange={(value) => setFormData({ ...formData, companySize: value })}
+                      required
+                    >
+                      <SelectTrigger className="w-full h-12 bg-background/60 border-border/40 rounded-xl text-base focus:ring-primary/20 focus:border-primary/40 transition-all">
+                        <SelectValue placeholder="Select..." />
+                      </SelectTrigger>
+                      <SelectContent className="bg-background/95 backdrop-blur-lg border-border/60">
+                        <SelectItem value="startup" className="text-base">Startup</SelectItem>
+                        <SelectItem value="scaleup" className="text-base">Scale Up</SelectItem>
+                        <SelectItem value="enterprise" className="text-base">Enterprise</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div className="space-y-3">
@@ -183,13 +203,13 @@ export default function ContactPage() {
                   </div>
 
                   {submitStatus === 'success' && (
-                    <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-500 text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-300">
+                    <div className="p-4 bg-primary/10 border border-primary/20 rounded-xl text-primary text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-300">
                       ✓ Thank you! We&apos;ll get back to you soon.
                     </div>
                   )}
 
                   {submitStatus === 'error' && (
-                    <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-500 text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-300">
+                    <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-xl text-destructive text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-300">
                       ✗ Something went wrong. Please try again.
                     </div>
                   )}
@@ -211,6 +231,7 @@ export default function ContactPage() {
                     ) : 'Submit'}
                   </Button>
                 </form>
+                )}
               </div>
             </div>
           </div>

@@ -13,23 +13,20 @@ export function TargetAudienceSection() {
     {
       title: 'Scaleups',
       description: 'Teams growing fast, facing development bottlenecks and losing control as more developers join the project.',
-      gradient: 'from-primary/20 to-transparent',
-      iconColor: 'text-primary',
+      gradient: 'from-primary/10 to-transparent',
       iconBg: 'bg-primary/10',
     },
     {
       title: 'Enterprises',
       description: 'Organizations with large dev teams, multiple products, and the need for strict governance and platform reliability.',
-      gradient: 'from-blue-500/20 to-transparent',
-      iconColor: 'text-blue-500',
-      iconBg: 'bg-blue-500/10',
+      gradient: 'from-primary/10 to-transparent',
+      iconBg: 'bg-primary/10',
     },
     {
       title: 'Compliance Driven Industries',
       description: 'Where security, traceability, and control are essential: Defense, Fintech, Healthtech, Insurance, GovTech...',
-      gradient: 'from-purple-500/20 to-transparent',
-      iconColor: 'text-purple-500',
-      iconBg: 'bg-purple-500/10',
+      gradient: 'from-primary/10 to-transparent',
+      iconBg: 'bg-primary/10',
     },
   ]
 
@@ -134,7 +131,7 @@ export function TargetAudienceSection() {
           {regulations.map((regulation, index) => (
             <div
               key={regulation.name}
-              className="group relative overflow-hidden rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm p-4 md:p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 flex flex-col items-center justify-between min-h-[160px]"
+              className="group relative overflow-hidden rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm p-4 md:p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 flex flex-col items-center justify-between min-h-40"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               {/* Logo/Icon */}
@@ -168,7 +165,7 @@ export function TargetAudienceSection() {
         <div className="mt-12 md:mt-16 text-center">
           <p className="text-sm md:text-base text-muted-foreground">
             Built with enterprise security and compliance standards in mind from day one.{' '}
-            <a href="/benefits" className="font-semibold text-primary hover:underline transition-colors">
+            <a href="/benefits" className="link-primary">
               Learn more about our security →
             </a>
           </p>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { PremiumIcon } from '@/components/premium-icon'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,6 +30,7 @@ export function Navbar() {
     { href: '/about', label: 'About' },
     { href: '/benefits', label: 'Benefits' },
     { href: '/pricing', label: 'Pricing' },
+    { href: '/services', label: 'Services' },
     // { href: '/faq', label: 'FAQ' },
     { href: '/contact', label: 'Contact' },
     { href: 'https://docs.thevenin.io/', label: 'Docs' },
@@ -39,7 +41,7 @@ export function Navbar() {
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled 
-            ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg shadow-[#CDFF8C]/5' 
+            ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg shadow-primary/5' 
             : 'bg-background/80 backdrop-blur-xl border-b border-border/40'
         }`}
       >
@@ -82,7 +84,7 @@ export function Navbar() {
                     className="font-medium"
                   >
                     Book Meeting
-                    <ChevronDown className="ml-1 h-4 w-4" />
+                    <PremiumIcon icon={ChevronDown} size="xs" className="ml-1 text-inherit" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
@@ -100,7 +102,7 @@ export function Navbar() {
               </DropdownMenu>
               <Button 
                 size="sm" 
-                className="bg-[#CDFF8C] text-black font-medium"
+                className="font-medium"
                 asChild
               >
                 <a href="https://apps.thevenin.io/signup">Try Thevenin Demo</a>
@@ -110,17 +112,21 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative p-2 rounded-lg hover:bg-[#CDFF8C]/10 transition-colors"
+              className="lg:hidden relative p-2 rounded-lg hover:bg-primary/10 transition-colors"
               aria-label="Toggle menu"
             >
               <div className="relative w-6 h-6">
-                <Menu 
-                  className={`absolute inset-0 w-6 h-6 text-foreground transition-all duration-300 ${
+                <PremiumIcon
+                  icon={Menu}
+                  size={24}
+                  className={`absolute inset-0 text-foreground transition-all duration-300 ${
                     isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
                   }`}
                 />
-                <X 
-                  className={`absolute inset-0 w-6 h-6 text-foreground transition-all duration-300 ${
+                <PremiumIcon
+                  icon={X}
+                  size={24}
+                  className={`absolute inset-0 text-foreground transition-all duration-300 ${
                     isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
                   }`}
                 />
@@ -145,7 +151,7 @@ export function Navbar() {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 py-6">
-          <div className="bg-card/95 backdrop-blur-xl rounded-2xl border border-border/50 shadow-2xl shadow-[#CDFF8C]/10 overflow-hidden">
+          <div className="bg-card/95 backdrop-blur-xl rounded-2xl border border-border/50 shadow-2xl shadow-primary/10 overflow-hidden">
             <div className="p-6 space-y-1">
               {navLinks.map((link, index) => (
                 <a
@@ -170,10 +176,15 @@ export function Navbar() {
                   className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-foreground hover:bg-muted/50 transition-colors"
                 >
                   <span className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-primary" />
+                    <PremiumIcon icon={Calendar} size="xs" tone="primary" />
                     Book Meeting
                   </span>
-                  <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${bookingExpanded ? 'rotate-180' : ''}`} />
+                  <PremiumIcon
+                    icon={ChevronDown}
+                    size="xs"
+                    tone="muted"
+                    className={`transition-transform duration-200 ${bookingExpanded ? 'rotate-180' : ''}`}
+                  />
                 </button>
                 <div className={`overflow-hidden transition-all duration-200 ${bookingExpanded ? 'max-h-32' : 'max-h-0'}`}>
                   <div className="px-4 pb-3 space-y-2 bg-muted/30">
@@ -200,7 +211,7 @@ export function Navbar() {
               </div>
               
               <Button 
-                className="w-full bg-[#CDFF8C] text-black font-medium"
+                className="w-full font-medium"
                 onClick={() => setIsOpen(false)}
                 asChild
               >
